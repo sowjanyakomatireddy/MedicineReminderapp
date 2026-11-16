@@ -2,6 +2,7 @@ import { createContext, useCallback, useContext, useMemo, type ReactNode } from 
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { api, tokenStore } from '../api/client';
 import i18n from '../i18n';
+import { forgetAlerts } from '../push/webPush';
 
 export interface User {
   id: string;
@@ -51,8 +52,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       register: async (input) =>
         accept(await api<AuthResponse>('/api/auth/register', { method: 'POST', body: JSON.stringify(input) })),
       logout: () => {
-        tokenStore.set(null);
-        qc.clear();
+        void forgetAlerts().finally(() => {
+          tokenStore.set(null);
+          qc.clear();
+        });
       },
     }),
     [me.data, me.isLoading, accept, qc],

@@ -2,3 +2,9 @@
 .DS_Store
 .idea/
 .vscode/
+uploads/
+
+# Firebase: project files and the server key never go in git
+app/android/app/google-services.json
+*firebase-adminsdk*.json
+firebase-service-account*.json

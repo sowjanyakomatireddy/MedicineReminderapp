@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- English fallbacks only. The words on the alarm come from the app in the person's language. -->
+<resources>
+    <string name="channel_alarm">Medicine alarms</string>
+    <string name="channel_routine">Daily routine reminders</string>
+    <string name="medicine_time">MEDICINE TIME</string>
+    <string name="routine_time">ROUTINE</string>
+    <string name="taken">I have taken it</string>
+    <string name="taken_done">Well done. Taken.</string>
+    <string name="listen_again">Listen again</string>
+    <string name="voice_says">VOICE SAYS</string>
+    <string name="taken_title">Well done!</string>
+    <string name="next_medicine">Next medicine</string>
+    <string name="family_informed">The family has been told</string>
+    <string name="family_later">The family will be told when the phone is online</string>
+    <string name="ok">OK</string>
+</resources>

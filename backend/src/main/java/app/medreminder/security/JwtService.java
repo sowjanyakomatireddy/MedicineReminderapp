@@ -19,6 +19,7 @@ import java.util.UUID;
 public class JwtService {
     static final String CLAIM_TYPE = "typ";
     static final String TYPE_USER = "user";
+    static final String TYPE_DEVICE = "device";
 
     private final SecretKey key;
     private final Duration ttl;
@@ -43,20 +44,45 @@ public class JwtService {
                 .compact();
     }
 
+    /**
+     * Token for a paired phone. It has no expiry because the elder cannot log in again;
+     * instead it is checked against the device table on every request and stops working when unlinked.
+     */
+    public String issueDeviceToken(UUID deviceId) {
+        return Jwts.builder()
+                .issuer(issuer)
+                .subject(deviceId.toString())
+                .claim(CLAIM_TYPE, TYPE_DEVICE)
+                .issuedAt(new Date())
+                .signWith(key)
+                .compact();
+    }
+
     public Duration ttl() {
         return ttl;
     }
 
     /** Returns the principal if the token is valid, signed by us, not expired, and a user token. */
     public Optional<AuthPrincipal> parseUserToken(String token) {
+        return claims(token, TYPE_USER)
+                .map(c -> new AuthPrincipal(UUID.fromString(c.getSubject()), c.get("email", String.class)));
+    }
+
+    /** Returns the principal if the token is a valid device token. The caller must still check it is not revoked. */
+    public Optional<DevicePrincipal> parseDeviceToken(String token) {
+        return claims(token, TYPE_DEVICE).map(c -> new DevicePrincipal(UUID.fromString(c.getSubject())));
+    }
+
+    private Optional<Claims> claims(String token, String type) {
         try {
             Claims c = Jwts.parser().verifyWith(key).requireIssuer(issuer).build()
                     .parseSignedClaims(token).getPayload();
-            if (!TYPE_USER.equals(c.get(CLAIM_TYPE, String.class))) {
+            if (!type.equals(c.get(CLAIM_TYPE, String.class))) {
                 return Optional.empty();
             }
-            return Optional.of(new AuthPrincipal(UUID.fromString(c.getSubject()), c.get("email", String.class)));
-        } catch (JwtException | IllegalArgumentException e) {
+            UUID.fromString(c.getSubject()); // reject malformed subjects early
+            return Optional.of(c);
+        } catch (JwtException | IllegalArgumentException | NullPointerException e) {
             return Optional.empty();
         }
     }

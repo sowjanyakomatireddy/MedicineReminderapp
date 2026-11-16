@@ -1,6 +1,7 @@
 package app.medreminder.security;
 
 import app.medreminder.config.AppProperties;
+import app.medreminder.device.DeviceRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -22,7 +23,8 @@ import java.util.List;
 public class SecurityConfig {
 
     @Bean
-    SecurityFilterChain filterChain(HttpSecurity http, JwtService jwtService, AppProperties props) throws Exception {
+    SecurityFilterChain filterChain(HttpSecurity http, JwtService jwtService, DeviceRepository devices,
+                                    AppProperties props) throws Exception {
         http
                 .csrf(c -> c.disable()) // stateless JWT in Authorization header, no cookies
                 .cors(c -> c.configurationSource(corsSource(props)))
@@ -33,11 +35,16 @@ public class SecurityConfig {
                 .authorizeHttpRequests(a -> a
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers("/api/health", "/api/auth/register", "/api/auth/login").permitAll()
+                        // The elder's phone pairs without an account.
+                        .requestMatchers("/api/pairing/lookup", "/api/pairing/redeem").permitAll()
                         .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
                         .requestMatchers("/error").permitAll()
-                        .anyRequest().authenticated())
+                        // A paired phone may only call its own endpoints...
+                        .requestMatchers("/api/devices/me", "/api/devices/me/**").hasRole("DEVICE")
+                        // ...and everything else is for logged-in family members.
+                        .anyRequest().hasRole("USER"))
                 .addFilterBefore(new RateLimitFilter(props.rateLimit()), UsernamePasswordAuthenticationFilter.class)
-                .addFilterBefore(new JwtAuthFilter(jwtService), UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(new JwtAuthFilter(jwtService, devices), UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 

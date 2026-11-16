@@ -72,7 +72,7 @@ export function AuthPage({ mode }: { mode: 'login' | 'register' }) {
           minLength={8}
           error={fieldErrors?.password}
         />
-        {error != null && !fieldErrors && <Alert>{t(errorKey(error))}</Alert>}
+        {error != null && !fieldErrors && <Alert>{t(errorKey(error, { 409: 'errors.emailTaken' }))}</Alert>}
         <Button type="submit" disabled={busy}>
           {isLogin ? t('auth.login') : t('auth.register')}
         </Button>

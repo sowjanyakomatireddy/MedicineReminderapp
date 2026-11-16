@@ -10,3 +10,8 @@ app:
     allowed-origins: http://localhost:5173
   rate-limit:
     requests-per-minute: 1000
+  storage:
+    dir: target/test-uploads
+  jobs:
+    enabled: false   # tests run the missed-dose check directly
+    missed-grace-minutes: 2

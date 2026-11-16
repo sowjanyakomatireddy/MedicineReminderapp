@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Full-screen alarm, following the prototype's "Alarm" screen. Text sizes in sp follow the phone's font size. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0B3C40"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:id="@+id/alarm_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="24dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="24dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView android:id="@+id/label" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:letterSpacing="0.04" android:textColor="#BFE3DE" android:textSize="16sp" />
+                <TextView android:id="@+id/time" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:textColor="#FFFFFF" android:textSize="56sp" android:textStyle="bold" />
+                <TextView android:id="@+id/period" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:textColor="#FFFFFF" android:textSize="24sp" android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/bg_card"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <ImageView android:id="@+id/picture" android:layout_width="112dp" android:layout_height="112dp"
+                        android:background="@drawable/bg_picture" android:importantForAccessibility="no" />
+                    <TextView android:id="@+id/title" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp" android:gravity="center" android:textColor="#14262B"
+                        android:textSize="34sp" android:textStyle="bold" />
+                    <TextView android:id="@+id/subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp" android:gravity="center" android:textColor="#4A5D62" android:textSize="16sp" />
+                    <LinearLayout android:id="@+id/chips" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp" android:gravity="center" android:orientation="vertical" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/bg_voice"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <TextView android:id="@+id/voice_label" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:letterSpacing="0.04" android:textColor="#BFE3DE" android:textSize="12sp" android:textStyle="bold" />
+                    <TextView android:id="@+id/spoken" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp" android:lineSpacingMultiplier="1.3" android:textColor="#FFFFFF" android:textSize="18sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/btn_taken"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_btn_taken"
+            android:minHeight="76dp"
+            android:textAllCaps="false"
+            android:textColor="#0B3C40"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_listen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_btn_outline"
+            android:minHeight="56dp"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <!-- Taken screen (prototype "Taken"): well done, what was taken, the next medicine, family told. -->
+    <LinearLayout
+        android:id="@+id/done"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E3F1EC"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingStart="24dp"
+        android:paddingTop="72dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="24dp"
+        android:visibility="gone">
+
+        <TextView android:layout_width="140dp" android:layout_height="140dp" android:background="@drawable/bg_done_circle"
+            android:gravity="center" android:importantForAccessibility="no" android:text="✓" android:textColor="#FFFFFF"
+            android:textSize="72sp" android:textStyle="bold" />
+        <TextView android:id="@+id/done_title" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="24dp" android:gravity="center" android:textColor="#14262B" android:textSize="36sp"
+            android:textStyle="bold" />
+        <TextView android:id="@+id/done_text" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="8dp" android:gravity="center" android:textColor="#34494E" android:textSize="22sp" />
+
+        <LinearLayout android:id="@+id/next_box" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="24dp" android:background="@drawable/bg_card" android:orientation="vertical"
+            android:padding="18dp">
+            <TextView android:id="@+id/next_label" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="#4A5D62" android:textSize="16sp" android:textStyle="bold" />
+            <TextView android:id="@+id/next_text" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="4dp" android:textColor="#14262B" android:textSize="24sp" android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView android:id="@+id/family_text" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" android:gravity="center" android:textColor="#34494E" android:textSize="18sp" />
+
+        <View android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" />
+
+        <Button android:id="@+id/btn_ok" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:background="@drawable/bg_btn_ok" android:minHeight="68dp" android:textAllCaps="false"
+            android:textColor="#FFFFFF" android:textSize="24sp" android:textStyle="bold" />
+    </LinearLayout>
+</FrameLayout>

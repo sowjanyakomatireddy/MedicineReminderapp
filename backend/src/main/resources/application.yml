@@ -13,8 +13,15 @@ spring:
       hibernate.jdbc.time_zone: UTC
   flyway:
     enabled: true
+  messages:
+    basename: i18n/messages      # push alert text, one file per language; English is the fallback
+    fallback-to-system-locale: false
   jackson:
     default-property-inclusion: non_null
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 6MB
 
 server:
   port: ${PORT:8080}
@@ -35,6 +42,14 @@ app:
       - /api/auth/login
       - /api/auth/register
       - /api/pairing
+  push:
+    credentials-file: ${FIREBASE_CREDENTIALS:}   # service-account JSON; empty = push messages off
+    app-url: ${APP_URL:http://localhost:5173}     # links in family alerts
+  jobs:
+    enabled: true
+    missed-grace-minutes: 2   # wait this long after the automatic stop for the phone's own report
+  storage:
+    dir: ${PHOTO_DIR:./uploads}   # photos; git-ignored. Swap PhotoStorage for cloud storage later.
 
 springdoc:
   swagger-ui:
