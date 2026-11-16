@@ -1,0 +1,36 @@
+{
+  "appName": "Medicine Reminder",
+  "common": {
+    "loading": "Loading…",
+    "language": "Language",
+    "logout": "Log out",
+    "disclaimer": "Confirm medicines and food timing with the doctor."
+  },
+  "auth": {
+    "loginTitle": "Log in",
+    "registerTitle": "Create an account",
+    "email": "Email",
+    "password": "Password",
+    "passwordHint": "At least 8 characters",
+    "displayName": "Your name",
+    "login": "Log in",
+    "register": "Create account",
+    "noAccount": "No account yet?",
+    "haveAccount": "Already have an account?"
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again.",
+    "wrongCredentials": "Email or password is wrong.",
+    "emailTaken": "An account with this email already exists.",
+    "tooMany": "Too many attempts. Please wait a minute and try again.",
+    "network": "Cannot reach the server. Check your internet."
+  },
+  "home": {
+    "welcome": "Hello, {{name}}",
+    "comingSoon": "Family members and medicines will appear here."
+  },
+  "elder": {
+    "todayTitle": "Today's medicines",
+    "empty": "Medicines will appear here."
+  }
+}

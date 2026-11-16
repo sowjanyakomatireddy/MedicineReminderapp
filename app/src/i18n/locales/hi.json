@@ -1,0 +1,37 @@
+{
+  "_reviewStatus": "needs review by a native speaker",
+  "appName": "दवा याद",
+  "common": {
+    "loading": "लोड हो रहा है…",
+    "language": "भाषा",
+    "logout": "लॉग आउट",
+    "disclaimer": "दवाइयाँ और खाने का समय डॉक्टर से पक्का करें।"
+  },
+  "auth": {
+    "loginTitle": "लॉग इन",
+    "registerTitle": "खाता बनाएं",
+    "email": "ईमेल",
+    "password": "पासवर्ड",
+    "passwordHint": "कम से कम 8 अक्षर",
+    "displayName": "आपका नाम",
+    "login": "लॉग इन",
+    "register": "खाता बनाएं",
+    "noAccount": "खाता नहीं है?",
+    "haveAccount": "पहले से खाता है?"
+  },
+  "errors": {
+    "generic": "कुछ गलत हो गया। फिर से कोशिश करें।",
+    "wrongCredentials": "ईमेल या पासवर्ड गलत है।",
+    "emailTaken": "इस ईमेल से पहले से खाता है।",
+    "tooMany": "बहुत ज़्यादा कोशिशें। एक मिनट रुककर फिर कोशिश करें।",
+    "network": "सर्वर से जुड़ नहीं पा रहे। इंटरनेट जाँचें।"
+  },
+  "home": {
+    "welcome": "नमस्ते, {{name}}",
+    "comingSoon": "परिवार के लोग और दवाइयाँ यहाँ दिखेंगी।"
+  },
+  "elder": {
+    "todayTitle": "आज की दवाइयाँ",
+    "empty": "दवाइयाँ यहाँ दिखेंगी।"
+  }
+}
