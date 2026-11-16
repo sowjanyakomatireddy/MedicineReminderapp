@@ -105,7 +105,13 @@ public class AlarmService extends Service implements TextToSpeech.OnInitListener
             stopSound();
             alarm = a;
             ringingKey = key;
-            Notification n = buildNotification(this, a, key, doseAt);
+            // Alarm screen already open for this dose: update the notification quietly (no banner on top of
+            // the screen). Otherwise post it fresh, so Android opens the full-screen alarm again.
+            boolean screenOpen = key.equals(AlarmActivity.visibleKey);
+            if (!screenOpen) {
+                getSystemService(NotificationManager.class).cancel(notificationId(key));
+            }
+            Notification n = buildNotification(this, a, key, doseAt, screenOpen);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                 startForeground(notificationId(key), n, ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PLAYBACK);
             } else {
@@ -301,7 +307,7 @@ public class AlarmService extends Service implements TextToSpeech.OnInitListener
         nm.createNotificationChannel(routine);
     }
 
-    static Notification buildNotification(Context ctx, JSONObject a, String key, long doseAt) {
+    static Notification buildNotification(Context ctx, JSONObject a, String key, long doseAt, boolean quiet) {
         createChannels(ctx);
         JSONObject ui = AlarmStore.ui(ctx);
         boolean routine = "ROUTINE".equals(a.optString("kind"));
@@ -332,6 +338,7 @@ public class AlarmService extends Service implements TextToSpeech.OnInitListener
                 .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                 .setOngoing(true)
                 .setAutoCancel(false)
+                .setOnlyAlertOnce(quiet)
                 .setFullScreenIntent(full, true)
                 .setContentIntent(full)
                 .addAction(0, routine ? ui.optString("ok", ctx.getString(R.string.ok))

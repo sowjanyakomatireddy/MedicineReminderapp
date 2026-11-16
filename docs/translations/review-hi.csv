@@ -1,0 +1,340 @@
+﻿key,English,Current draft,Corrected (leave empty if the draft is right),Notes
+appName,Medicine Reminder,दवा याद,,
+common.loading,Loading…,लोड हो रहा है…,,
+common.language,Language,भाषा,,
+common.logout,Log out,लॉग आउट,,
+common.disclaimer,Confirm medicines and food timing with the doctor.,दवाइयाँ और खाने का समय डॉक्टर से पक्का करें।,,
+common.save,Save,सेव करें,,
+common.edit,Edit,बदलें,,
+common.retry,Try again,फिर से कोशिश करें,,
+common.copy,Copy code,कोड कॉपी करें,,
+common.copied,Copied,कॉपी हो गया,,
+common.share,Share,भेजें,,
+common.back,Back,वापस,,
+common.changePhoto,Change photo,फ़ोटो बदलें,,
+common.removePhoto,Remove photo,फ़ोटो हटाएं,,
+common.cancel,Cancel,रद्द करें,,
+auth.loginTitle,Log in,लॉग इन,,
+auth.registerTitle,Create an account,खाता बनाएं,,
+auth.email,Email,ईमेल,,
+auth.password,Password,पासवर्ड,,
+auth.passwordHint,At least 8 characters,कम से कम 8 अक्षर,,
+auth.displayName,Your name,आपका नाम,,
+auth.login,Log in,लॉग इन,,
+auth.register,Create account,खाता बनाएं,,
+auth.noAccount,No account yet?,खाता नहीं है?,,
+auth.haveAccount,Already have an account?,पहले से खाता है?,,
+errors.generic,Something went wrong. Please try again.,कुछ गलत हो गया। फिर से कोशिश करें।,,
+errors.wrongCredentials,Email or password is wrong.,ईमेल या पासवर्ड गलत है।,,
+errors.emailTaken,An account with this email already exists.,इस ईमेल से पहले से खाता है।,,
+errors.tooMany,Too many attempts. Please wait a minute and try again.,बहुत ज़्यादा कोशिशें। एक मिनट रुककर फिर कोशिश करें।,,
+errors.network,Cannot reach the server. Check your internet.,सर्वर से जुड़ नहीं पा रहे। इंटरनेट जाँचें।,,
+errors.forbidden,Only family editors can change this.,इसे सिर्फ़ परिवार के एडिटर बदल सकते हैं।,,
+errors.conflict,This clashes with a change someone else made. Please refresh.,यह किसी और के किए बदलाव से टकरा रहा है। पेज रिफ़्रेश करें।,,
+errors.badCode,"This code is wrong, already used, or expired. Ask the family for a new code.","यह कोड गलत है, पहले इस्तेमाल हो चुका है, या समय खत्म हो गया है। परिवार से नया कोड माँगें।",,
+errors.alreadyInFamily,You are already in a family.,आप पहले से एक परिवार में हैं।,,
+errors.lastEditor,The family needs at least one editor. Make someone else an editor first.,परिवार में कम से कम एक एडिटर होना चाहिए। पहले किसी और को एडिटर बनाएं।,,
+errors.loadFailed,Could not load. Check your internet and try again.,लोड नहीं हो पाया। इंटरनेट जाँचकर फिर कोशिश करें।,,
+errors.checkFields,Some fields need fixing.,कुछ जानकारी ठीक करनी है।,,
+errors.offline,You are offline. Changes will not be saved until the internet is back. His alarms still ring.,आप ऑफ़लाइन हैं। इंटरनेट आने तक बदलाव सेव नहीं होंगे। उनके अलार्म बजते रहेंगे।,,
+errors.crashed,Something went wrong on this screen.,इस स्क्रीन पर कुछ गलत हो गया।,,
+errors.reload,Reload,फिर से लोड करें,,
+nav.label,Main,मुख्य मेनू,,
+nav.home,Home,होम,,
+nav.family,Family,परिवार,,
+nav.medicines,Medicines,दवाइयाँ,,
+nav.routine,Routine,दिनचर्या,,
+home.welcome,"Hello, {{name}}","नमस्ते, {{name}}",,Keep {{name}} exactly (filled in by the app)
+home.familyLabel,Family,परिवार,,
+home.addPerson,+ Add,+ जोड़ें,,
+home.today,Today · {{name}} · {{language}},आज · {{name}} · {{language}},,Keep {{name}} {{language}} exactly (filled in by the app)
+home.takenOf,{{taken}} of {{total}},{{total}} में से {{taken}},,Keep {{taken}} {{total}} exactly (filled in by the app)
+home.medicinesTaken,medicines taken,दवाइयाँ ली गईं,,
+home.schedule,Schedule,समय-सारणी,,
+home.noMedicines,No medicines yet for {{name}}.,{{name}} के लिए अभी कोई दवा नहीं।,,Keep {{name}} exactly (filled in by the app)
+home.addMedicine,Add a medicine,दवा जोड़ें,,
+home.noPeople,First add the person you want to remind.,पहले उस व्यक्ति को जोड़ें जिसे याद दिलाना है।,,
+home.addFirstPerson,Add a person,व्यक्ति जोड़ें,,
+home.doseLine,{{time}} · {{food}} · alert {{alert}},{{time}} · {{food}} · अलर्ट {{alert}},,Keep {{time}} {{food}} {{alert}} exactly (filled in by the app)
+home.alerts,Alerts,अलर्ट,,
+start.title,Set up your family,अपना परिवार सेट करें,,
+start.intro,"Create a family for the people you look after, or join one with a code from a relative.","जिनकी आप देखभाल करते हैं उनके लिए परिवार बनाएं, या किसी रिश्तेदार के कोड से जुड़ें।",,
+start.createTitle,Create a family,परिवार बनाएं,,
+start.familyName,Family name,परिवार का नाम,,
+start.familyNameHint,For example: Reddy family,जैसे: रेड्डी परिवार,,
+start.create,Create family,परिवार बनाएं,,
+start.joinTitle,Join a family,परिवार से जुड़ें,,
+start.joinIntro,Ask a family editor for an invite code.,परिवार के एडिटर से न्योता कोड माँगें।,,
+start.code,Family code,परिवार कोड,,
+start.join,Join,जुड़ें,,
+members.title,Our family,हमारा परिवार,,
+members.intro,"Each person gets their own medicines, routine and voice language.","हर व्यक्ति की अपनी दवाइयाँ, दिनचर्या और आवाज़ की भाषा होती है।",,
+members.peopleHeading,People we remind,जिन्हें हम याद दिलाते हैं,,
+members.voice,Voice:,आवाज़:,,
+members.phoneLinked,Phone linked,फ़ोन जुड़ा है,,
+members.noPhone,No phone yet,अभी फ़ोन नहीं,,
+members.setUpPhone,Set up phone,फ़ोन सेट करें,,
+members.setUpPhoneFor,Set up {{name}}’s phone,{{name}} का फ़ोन सेट करें,,Keep {{name}} exactly (filled in by the app)
+members.editPerson,Edit {{name}},{{name}} की जानकारी बदलें,,Keep {{name}} exactly (filled in by the app)
+members.noPeople,No one yet. Add the first person you want to remind.,"अभी कोई नहीं। जिसे याद दिलाना है, उस पहले व्यक्ति को जोड़ें।",,
+members.addPerson,+ Add a person to remind,+ याद दिलाने के लिए व्यक्ति जोड़ें,,
+members.familyHeading,Family who get alerts,अलर्ट पाने वाले परिवार के लोग,,
+members.you,You,आप,,
+members.roleEDITOR,Can edit everything,सब कुछ बदल सकते हैं,,
+members.roleVIEWER,Missed-dose alerts,दवा छूटने पर अलर्ट,,
+members.roleFor,What {{name}} can do,{{name}} क्या कर सकते हैं,,Keep {{name}} exactly (filled in by the app)
+members.remove,Remove {{name}},{{name}} को हटाएं,,Keep {{name}} exactly (filled in by the app)
+members.removeConfirm,Remove {{name}} from the family?,{{name}} को परिवार से हटाएं?,,Keep {{name}} exactly (filled in by the app)
+members.leave,Leave family,परिवार छोड़ें,,
+members.leaveConfirm,Leave this family? You will stop getting alerts.,यह परिवार छोड़ें? आपको अलर्ट नहीं मिलेंगे।,,
+members.inviteHeading,Invite a family member,परिवार के सदस्य को न्योता दें,,
+members.inviteRole,They will get,उन्हें मिलेगा,,
+members.makeInvite,Make an invite code,न्योता कोड बनाएं,,
+members.inviteHelp,"They create an account in this app, choose “Join a family”, and type this code.","वे इस ऐप में खाता बनाएं, “परिवार से जुड़ें” चुनें, और यह कोड लिखें।",,
+members.note,Family members join with a code. They get alerts on their own phone. Only people you allow can change medicines.,"परिवार के लोग कोड से जुड़ते हैं। उन्हें अपने फ़ोन पर अलर्ट मिलते हैं। सिर्फ़ जिन्हें आप अनुमति दें, वही दवाइयाँ बदल सकते हैं।",,
+members.medicines_one,{{count}} medicine,{{count}} दवा,,Keep {{count}} exactly (filled in by the app). Singular form (count = 1)
+members.medicines_other,{{count}} medicines,{{count}} दवाइयाँ,,Keep {{count}} exactly (filled in by the app). Plural form
+members.periodDates,Period dates,पीरियड की तारीखें,,
+person.addTitle,Add a person to remind,याद दिलाने के लिए व्यक्ति जोड़ें,,
+person.editTitle,Edit {{name}},{{name}} की जानकारी बदलें,,Keep {{name}} exactly (filled in by the app)
+person.name,Name,नाम,,
+person.nameHint,"What the voice calls them, for example Thatha or Amma.","आवाज़ उन्हें क्या कहकर बुलाए, जैसे दादाजी या अम्मा।",,
+person.voiceLanguage,Voice language,आवाज़ की भाषा,,
+person.voiceHint,The alarm speaks in this language. It can be different from your app language.,अलार्म इसी भाषा में बोलेगा। यह आपकी ऐप की भाषा से अलग हो सकती है।,,
+person.timeZone,Time zone,टाइम ज़ोन,,
+person.delete,Delete this person,इस व्यक्ति को हटाएं,,
+person.deleteConfirm,Delete {{name}}? Their phone will be unlinked.,{{name}} को हटाएं? उनका फ़ोन अलग हो जाएगा।,,Keep {{name}} exactly (filled in by the app)
+person.viewerNote,Only family editors can change this.,इसे सिर्फ़ परिवार के एडिटर बदल सकते हैं।,,
+person.photo,Photo (optional),फ़ोटो (वैकल्पिक),,
+person.phone,Their phone number (optional),उनका फ़ोन नंबर (वैकल्पिक),,
+person.phoneHint,For the Call button when a dose is missed.,दवा छूटने पर कॉल बटन के लिए।,,
+person.familyPhone,Family number their phone calls (optional),उनका फ़ोन जिस परिवार नंबर पर कॉल करे (वैकल्पिक),,
+person.familyPhoneHint,Shown as “Call family” on their phone.,उनके फ़ोन पर “परिवार को कॉल करें” के रूप में दिखेगा।,,
+person.periodTracking,Period date reminders,पीरियड की तारीख के रिमाइंडर,,
+person.periodTrackingHint,Estimate the next date and remind her by voice a few days before. Not medical advice.,अगली तारीख का अनुमान लगाकर कुछ दिन पहले आवाज़ से याद दिलाता है। डॉक्टरी सलाह नहीं।,,
+setup.title,Set up {{name}}’s phone,{{name}} का फ़ोन सेट करें,,Keep {{name}} exactly (filled in by the app)
+setup.intro,"Do this once, holding their phone. After that the alarm rings by itself, even when the phone is locked.",उनका फ़ोन हाथ में लेकर यह एक बार करें। उसके बाद फ़ोन लॉक होने पर भी अलार्म अपने आप बजेगा।,,
+setup.progress,{{done}} of {{total}} steps done,{{total}} में से {{done}} कदम पूरे,,Keep {{done}} {{total}} exactly (filled in by the app)
+setup.step1Title,Install the app and join the family,ऐप इंस्टॉल करें और परिवार से जुड़ें,,
+setup.step1Hint,Type the family code on their phone.,उनके फ़ोन पर परिवार कोड लिखें।,,
+setup.step2Title,Allow notifications,नोटिफ़िकेशन की अनुमति दें,,
+setup.step2Hint,So the reminder can appear on the screen.,ताकि रिमाइंडर स्क्रीन पर दिख सके।,,
+setup.step3Title,Allow alarms at exact times,सही समय पर अलार्म की अनुमति दें,,
+setup.step3Hint,Needed so the 7:00 alarm is not late.,ताकि 7:00 का अलार्म देर से न बजे।,,
+setup.step4Title,Show over the lock screen,लॉक स्क्रीन पर दिखाएं,,
+setup.step4Hint,So the big alarm opens without unlocking.,ताकि बड़ा अलार्म बिना अनलॉक किए खुले।,,
+setup.step5Title,Turn off battery saving for this app,इस ऐप के लिए बैटरी सेविंग बंद करें,,
+setup.step5Hint,Stops the phone from closing the app at night.,ताकि फ़ोन रात में ऐप बंद न करे।,,
+setup.done,Done,पूरा,,
+setup.notDone,Not done,पूरा नहीं,,
+setup.tapHint,"Tap a step to tick it off. On some phones (Xiaomi, Samsung, Oppo, Vivo) the battery step is the one that matters most.","कदम पर टिक लगाने के लिए उसे दबाएं। कुछ फ़ोन (Xiaomi, Samsung, Oppo, Vivo) पर बैटरी वाला कदम सबसे ज़रूरी है।",,
+setup.codeHeading,Family code for this phone,इस फ़ोन के लिए परिवार कोड,,
+setup.makeCode,Show a family code,परिवार कोड दिखाएं,,
+setup.codeHelp,"On their phone, open {{url}} and type this code.",उनके फ़ोन पर {{url}} खोलें और यह कोड लिखें।,,Keep {{url}} exactly (filled in by the app)
+setup.linkedHeading,Linked phones,जुड़े हुए फ़ोन,,
+setup.linkedOn,Linked {{date}},{{date}} को जुड़ा,,Keep {{date}} exactly (filled in by the app)
+setup.unknownPhone,Phone,फ़ोन,,
+setup.unlink,Unlink,अलग करें,,
+setup.unlinkConfirm,Unlink this phone? It will stop getting reminders.,यह फ़ोन अलग करें? इसे रिमाइंडर नहीं मिलेंगे।,,
+setup.testAlarm,Ring a test alarm now,अभी टेस्ट अलार्म बजाएं,,
+setup.testAlarmLater,Available in the Android app.,Android ऐप में उपलब्ध।,,
+code.expires,"Works once, until {{time}}.","सिर्फ़ एक बार काम करेगा, {{time}} तक।",,Keep {{time}} exactly (filled in by the app)
+code.spoken,Code: {{code}},कोड: {{code}},,Keep {{code}} exactly (filled in by the app)
+elder.todayTitle,Today's medicines,आज की दवाइयाँ,,Shown to the elder: short and simple
+elder.empty,Medicines will appear here.,दवाइयाँ यहाँ दिखेंगी।,,Shown to the elder: short and simple
+elder.hello,"Hello, {{name}}","नमस्ते, {{name}}",,Keep {{name}} exactly (filled in by the app). Shown to the elder: short and simple
+elder.pairTitle,Link this phone,इस फ़ोन को जोड़ें,,Shown to the elder: short and simple
+elder.pairIntro,Type the family code from the family app.,परिवार ऐप से मिला परिवार कोड लिखें।,,Shown to the elder: short and simple
+elder.code,Family code,परिवार कोड,,Shown to the elder: short and simple
+elder.next,Next,अगली,,Shown to the elder: short and simple
+elder.whoTitle,Which person is this phone?,यह फ़ोन किसका है?,,Shown to the elder: short and simple
+elder.noPeople,No one has been added yet. Add a person in the family app first.,अभी किसी को नहीं जोड़ा गया। पहले परिवार ऐप में व्यक्ति जोड़ें।,,Shown to the elder: short and simple
+elder.back,Back,वापस,,Shown to the elder: short and simple
+elder.setupLink,Phone setup,फ़ोन सेटअप,,Shown to the elder: short and simple
+elder.today,Today,आज,,Shown to the elder: short and simple
+elder.takenShort,Taken,ले ली,,Shown to the elder: short and simple
+elder.missedShort,Missed,छूट गई,,Shown to the elder: short and simple
+elder.callFamily,Call family,परिवार को कॉल करें,,Shown to the elder: short and simple
+elder.offline,No internet. Showing the saved list; alarms still ring.,इंटरनेट नहीं है। सेव की हुई सूची दिख रही है; अलार्म बजेंगे।,,Shown to the elder: short and simple
+elder.noneToday,No medicines today.,आज कोई दवा नहीं।,,Shown to the elder: short and simple
+status.UPCOMING,Upcoming,आने वाली,,
+status.DUE,Ringing now,अभी बज रहा है,,
+status.UNCONFIRMED,Not confirmed yet,अभी पक्का नहीं,,
+status.TAKEN,Taken,ले ली,,
+status.MISSED,Missed,छूट गई,,
+food.BEFORE,Before food,खाने से पहले,,
+food.AFTER,After food,खाने के बाद,,
+food.ANY,Any time,कभी भी,,
+shape.ROUND,Round,गोल,,
+shape.OVAL,Oval,अंडाकार,,
+shape.CAPSULE,Capsule,कैप्सूल,,
+shape.OTHER,Other,अन्य,,
+colour.WHITE,White,सफ़ेद,,
+colour.YELLOW,Yellow,पीली,,
+colour.ORANGE,Orange,नारंगी,,
+colour.PINK,Pink,गुलाबी,,
+colour.RED,Red,लाल,,
+colour.BLUE,Blue,नीली,,
+colour.GREEN,Green,हरी,,
+colour.BROWN,Brown,भूरी,,
+colour.MIXED,Two colours,दो रंग,,
+days.everyDay,Every day,हर दिन,,
+days.chooseDays,Chosen days,चुने हुए दिन,,
+medicine.addTitle,Add a medicine,दवा जोड़ें,,
+medicine.editTitle,Edit medicine,दवा बदलें,,
+medicine.forPerson,For {{name}},{{name}} के लिए,,Keep {{name}} exactly (filled in by the app)
+medicine.forWho,Who is it for?,किसके लिए?,,
+medicine.photo,Photo of tablet,गोली की फ़ोटो,,
+medicine.name,Medicine name,दवा का नाम,,
+medicine.voiceName,What the voice calls it,आवाज़ इसे क्या कहे,,
+medicine.voiceLanguage,Voice language,आवाज़ की भाषा,,
+medicine.voiceLanguageNote,This changes the voice for all of {{name}}’s reminders.,इससे {{name}} के सभी रिमाइंडर की आवाज़ बदल जाएगी।,,Keep {{name}} exactly (filled in by the app)
+medicine.preview,Voice preview:,आवाज़ का नमूना:,,
+medicine.previewPlaceholder,…,…,,
+medicine.listen,Listen,सुनें,,
+medicine.noVoice,This device has no {{language}} voice to play the preview. Their phone is checked when you set it up.,नमूना चलाने के लिए इस डिवाइस में {{language}} आवाज़ नहीं है। सेट करते समय उनका फ़ोन जाँचा जाएगा।,,Keep {{language}} exactly (filled in by the app)
+medicine.time,Time,समय,,
+medicine.timeN,Time {{n}},समय {{n}},,Keep {{n}} exactly (filled in by the app)
+medicine.repeat,Repeat,दोहराएं,,
+medicine.withFood,With food,खाने के साथ,,
+medicine.addTime,+ Add another time,+ एक और समय जोड़ें,,
+medicine.removeTime,Remove this time,यह समय हटाएं,,
+medicine.timeActive,Alarm on,अलार्म चालू,,
+medicine.alarm,Alarm behaviour,अलार्म कैसे बजे,,
+medicine.firstReminder,First reminder,पहला रिमाइंडर,,
+medicine.atTheTime,At the time,उसी समय,,
+medicine.minBefore,{{count}} min before,{{count}} मिनट पहले,,Keep {{count}} exactly (filled in by the app)
+medicine.repeatEvery,Repeat every,हर इतने समय में दोहराएं,,
+medicine.minutes,{{count}} min,{{count}} मिनट,,Keep {{count}} exactly (filled in by the app)
+medicine.stopAfter,Stop automatically after,अपने आप बंद हो,,
+medicine.looksLike,Looks like (optional),कैसी दिखती है (वैकल्पिक),,
+medicine.shape,Shape,आकार,,
+medicine.colour,Colour,रंग,,
+medicine.notes,Notes (optional),नोट (वैकल्पिक),,
+medicine.notesHint,For example: 1 tablet. Shown to the family.,जैसे: 1 गोली। परिवार को दिखेगा।,,
+medicine.save,Save and send to {{name}}’s phone,सेव करें और {{name}} के फ़ोन पर भेजें,,Keep {{name}} exactly (filled in by the app)
+medicine.delete,Delete this medicine,यह दवा हटाएं,,
+medicine.deleteConfirm,Delete {{name}}? Its alarms will stop.,{{name}} हटाएं? इसके अलार्म बंद हो जाएंगे।,,Keep {{name}} exactly (filled in by the app)
+medicine.needDay,Choose at least one day.,कम से कम एक दिन चुनें।,,
+medicines.title,Medicines,दवाइयाँ,,
+medicines.editNamed,Edit {{name}},{{name}} बदलें,,Keep {{name}} exactly (filled in by the app)
+medicines.paused,Paused,रुका हुआ,,
+voice.sentence,"{{person}}, this is your {{voiceName}}. {{foodPhrase}}.","{{person}}, यह {{voiceName}} है। {{foodPhrase}}।",,Keep {{person}} {{voiceName}} {{foodPhrase}} exactly (filled in by the app). SPOKEN aloud by the alarm: should sound natural and polite to an elder
+voice.foodBEFORE,Take it before food,खाने से पहले लें,,SPOKEN aloud by the alarm: should sound natural and polite to an elder
+voice.foodAFTER,Take it after food,खाने के बाद लें,,SPOKEN aloud by the alarm: should sound natural and polite to an elder
+voice.foodANY,Take it now,अभी लें,,SPOKEN aloud by the alarm: should sound natural and polite to an elder
+voice.routineSentence,"{{person}}, {{text}}.","{{person}}, {{text}}।",,Keep {{person}} {{text}} exactly (filled in by the app). SPOKEN aloud by the alarm: should sound natural and polite to an elder
+voice.periodSentence,"{{person}}, your period is expected in a few days.","{{person}}, पीरियड्स की तारीख पास है।",,Keep {{person}} exactly (filled in by the app). SPOKEN aloud by the alarm: should sound natural and polite to an elder
+alarm.medicineTime,MEDICINE TIME,दवा का समय,,Shown to the elder: short and simple
+alarm.routineTime,ROUTINE,दिनचर्या,,Shown to the elder: short and simple
+alarm.taken,I have taken it,मैंने ले ली,,Shown to the elder: short and simple
+alarm.takenDone,Well done. Taken.,बहुत अच्छा! दवा ले ली।,,Shown to the elder: short and simple
+alarm.listenAgain,Listen again,फिर से सुनें,,Shown to the elder: short and simple
+alarm.voiceSays,VOICE SAYS,आवाज़ कहती है,,Shown to the elder: short and simple
+alarm.morning,Morning,सुबह,,Shown to the elder: short and simple
+alarm.afternoon,Afternoon,दोपहर,,Shown to the elder: short and simple
+alarm.evening,Evening,शाम,,Shown to the elder: short and simple
+alarm.night,Night,रात,,Shown to the elder: short and simple
+alarm.takenTitle,Well done!,बहुत अच्छा!,,Shown to the elder: short and simple
+alarm.takenLine,{{name}} taken,{{name}} ले ली,,Keep {{name}} exactly (filled in by the app). Shown to the elder: short and simple
+alarm.nextMedicine,Next medicine,अगली दवा,,Shown to the elder: short and simple
+alarm.familyInformed,The family has been told,परिवार को बता दिया,,Shown to the elder: short and simple
+alarm.familyLater,The family will be told when the phone is online,इंटरनेट आने पर परिवार को बताया जाएगा,,Shown to the elder: short and simple
+alarm.ok,OK,ठीक है,,Shown to the elder: short and simple
+elderSetup.title,Set up this phone,यह फ़ोन सेट करें,,Shown to the elder: short and simple
+elderSetup.intro,"Allow each step so the alarm rings on time, even when the phone is locked.",हर कदम की अनुमति दें ताकि फ़ोन लॉक होने पर भी अलार्म समय पर बजे।,,Shown to the elder: short and simple
+elderSetup.notifications,Show reminders,रिमाइंडर दिखाएं,,Shown to the elder: short and simple
+elderSetup.exactAlarms,Alarms at the exact time,ठीक समय पर अलार्म,,Shown to the elder: short and simple
+elderSetup.lockScreen,Show over the lock screen,लॉक स्क्रीन पर दिखाएं,,Shown to the elder: short and simple
+elderSetup.battery,No battery saving for this app,इस ऐप के लिए बैटरी सेविंग नहीं,,Shown to the elder: short and simple
+elderSetup.autostart,Allow autostart,ऑटोस्टार्ट की अनुमति दें,,Shown to the elder: short and simple
+elderSetup.autostartHint,"On {{maker}} phones, also allow this app to start by itself:",{{maker}} फ़ोन पर इस ऐप को अपने आप शुरू होने की अनुमति भी दें:,,Keep {{maker}} exactly (filled in by the app). Shown to the elder: short and simple
+elderSetup.xiaomiLock,Allow “Show on lock screen”,“लॉक स्क्रीन पर दिखाएं” की अनुमति दें,,Shown to the elder: short and simple
+elderSetup.voice,{{language}} voice,{{language}} आवाज़,,Keep {{language}} exactly (filled in by the app). Shown to the elder: short and simple
+elderSetup.voiceMissing,Install the {{language}} voice so the alarm can speak.,"अलार्म बोल सके, इसके लिए {{language}} आवाज़ इंस्टॉल करें।",,Keep {{language}} exactly (filled in by the app). Shown to the elder: short and simple
+elderSetup.installVoice,Install voice,आवाज़ इंस्टॉल करें,,Shown to the elder: short and simple
+elderSetup.noEngine,This phone has no text-to-speech. Install “Speech Services by Google” from the Play Store.,इस फ़ोन में टेक्स्ट-टू-स्पीच नहीं है। Play Store से “Speech Services by Google” इंस्टॉल करें।,,Shown to the elder: short and simple
+elderSetup.ok,Done,हो गया,,Shown to the elder: short and simple
+elderSetup.notOk,Not yet,अभी नहीं,,Shown to the elder: short and simple
+elderSetup.fix,Open settings,सेटिंग खोलें,,Shown to the elder: short and simple
+elderSetup.allow,Allow,अनुमति दें,,Shown to the elder: short and simple
+elderSetup.testAlarm,Ring a test alarm in 10 seconds,10 सेकंड में टेस्ट अलार्म बजाएं,,Shown to the elder: short and simple
+elderSetup.testHint,"Then lock the phone. The alarm should ring, show over the lock screen and speak.","फिर फ़ोन लॉक करें। अलार्म बजना चाहिए, लॉक स्क्रीन पर दिखना और बोलना चाहिए।",,Shown to the elder: short and simple
+elderSetup.testScheduled,Test alarm set. Lock the phone now and wait 10 seconds.,टेस्ट अलार्म लग गया। अभी फ़ोन लॉक करें और 10 सेकंड रुकें।,,Shown to the elder: short and simple
+elderSetup.testMedicine,test tablet,टेस्ट गोली,,Shown to the elder: short and simple
+elderSetup.testSubtitle,This is only a test,यह सिर्फ़ टेस्ट है,,Shown to the elder: short and simple
+elderSetup.onlyAndroid,These checks work in the Android app on their phone.,ये जाँचें उनके फ़ोन के Android ऐप में काम करती हैं।,,Shown to the elder: short and simple
+elderSetup.done,Finish,पूरा करें,,Shown to the elder: short and simple
+elderSetup.details,Technical details,तकनीकी जानकारी,,Shown to the elder: short and simple
+missed.heading,{{name}} has not taken the {{time}} medicine,{{name}} ने {{time}} की दवा नहीं ली,,Keep {{name}} {{time}} exactly (filled in by the app)
+missed.late_one,{{count}} min late,{{count}} मिनट देर,,Keep {{count}} exactly (filled in by the app). Singular form (count = 1)
+missed.late_other,{{count}} min late,{{count}} मिनट देर,,Keep {{count}} exactly (filled in by the app). Plural form
+missed.rang_one,Missed · alarm rang {{count}} time,छूट गई · अलार्म {{count}} बार बजा,,Keep {{count}} exactly (filled in by the app). Singular form (count = 1)
+missed.rang_other,Missed · alarm rang {{count}} times,छूट गई · अलार्म {{count}} बार बजा,,Keep {{count}} exactly (filled in by the app). Plural form
+missed.takenNow,Marked as taken,ली हुई दर्ज की गई,,
+missed.call,Call {{name}},{{name}} को कॉल करें,,Keep {{name}} exactly (filled in by the app)
+missed.noPhone,Add {{name}}’s phone number to call from here.,यहाँ से कॉल करने के लिए {{name}} का फ़ोन नंबर जोड़ें।,,Keep {{name}} exactly (filled in by the app)
+missed.replay,Play the reminder again,रिमाइंडर फिर से बजाएं,,
+missed.replaying,Ringing on {{name}}’s phone now.,{{name}} के फ़ोन पर अभी बज रहा है।,,Keep {{name}} exactly (filled in by the app)
+missed.replayNoPush,"Push messages are not set up yet, so the phone cannot be rung from here. Please call.","पुश मैसेज अभी सेट नहीं हैं, इसलिए यहाँ से फ़ोन नहीं बजा सकते। कृपया कॉल करें।",,
+missed.replayNoPhone,{{name}}’s phone cannot be reached. Please call.,{{name}} के फ़ोन तक नहीं पहुँच पाए। कृपया कॉल करें।,,Keep {{name}} exactly (filled in by the app)
+missed.markTaken,Already taken? Mark as taken,पहले ही ले ली? ली हुई दर्ज करें,,
+missed.footer,Alerts go to everyone in the family group.,अलर्ट परिवार के सभी लोगों को जाते हैं।,,
+missed.week,This week,यह हफ़्ता,,
+missed.weekAll,All taken,सब ली,,
+missed.weekMissed_one,{{count}} missed,{{count}} छूटी,,Keep {{count}} exactly (filled in by the app). Singular form (count = 1)
+missed.weekMissed_other,{{count}} missed,{{count}} छूटीं,,Keep {{count}} exactly (filled in by the app). Plural form
+missed.weekMissedLegend,Missed,छूटी,,
+missed.weekNotYet,Not yet,अभी नहीं,,
+missed.weekToday,Today: {{taken}} of {{total}} taken,आज: {{total}} में से {{taken}} ली,,Keep {{taken}} {{total}} exactly (filled in by the app)
+alerts.title,Get missed-dose alerts on this device,इस डिवाइस पर दवा छूटने के अलर्ट पाएं,,
+alerts.body,"We will send an alert here if a dose is missed, even when this app is closed.","दवा छूटने पर हम यहाँ अलर्ट भेजेंगे, ऐप बंद होने पर भी।",,
+alerts.enable,Turn on alerts,अलर्ट चालू करें,,
+alerts.iosHint,"On iPhone: tap Share, then “Add to Home Screen”. Open the app from the Home Screen and turn on alerts there.","iPhone पर: Share दबाएं, फिर “Add to Home Screen”। होम स्क्रीन से ऐप खोलें और वहाँ अलर्ट चालू करें।",,
+alerts.blocked,Alerts are blocked for this site. Allow notifications in the browser settings.,इस साइट के अलर्ट बंद हैं। ब्राउज़र सेटिंग में नोटिफ़िकेशन की अनुमति दें।,,
+routine.title,Daily routine,रोज़ की दिनचर्या,,
+routine.personDay,{{name}}’s day,{{name}} का दिन,,Keep {{name}} exactly (filled in by the app)
+routine.add,+ Add,+ जोड़ें,,
+routine.empty,No routine reminders yet.,अभी कोई दिनचर्या रिमाइंडर नहीं।,,
+routine.editNamed,Edit {{name}},{{name}} बदलें,,Keep {{name}} exactly (filled in by the app)
+routine.voiceNote,"Spoken in {{language}}, for example:","{{language}} में बोला जाएगा, जैसे:",,Keep {{language}} exactly (filled in by the app)
+routine.footer,"Routine reminders ring on their phone like medicine alarms, but calmer. Dates are estimates and not medical advice.","दिनचर्या रिमाइंडर उनके फ़ोन पर दवा के अलार्म की तरह बजते हैं, पर धीरे। तारीखें अनुमान हैं, डॉक्टरी सलाह नहीं।",,
+routine.addTitle,Add a routine reminder,दिनचर्या रिमाइंडर जोड़ें,,
+routine.editTitle,Edit routine reminder,दिनचर्या रिमाइंडर बदलें,,
+routine.label,What it is (for the family),यह क्या है (परिवार के लिए),,
+routine.labelExample,Drink a glass of water,एक गिलास पानी पीना,,
+routine.spoken,"What the voice says, in {{language}} (optional)","आवाज़ क्या कहे, {{language}} में (वैकल्पिक)",,Keep {{language}} exactly (filled in by the app)
+routine.spokenHint,"If empty, the voice reads what it is.",खाली हो तो ऊपर लिखा हुआ पढ़ा जाएगा।,,
+routine.exampleText,time to drink a glass of water,पानी पी लीजिए,,
+routine.deleteConfirm,Delete “{{name}}”?,“{{name}}” हटाएं?,,Keep {{name}} exactly (filled in by the app)
+routine.delete,Delete this reminder,यह रिमाइंडर हटाएं,,
+period.nextExpected,Next period expected,अगले पीरियड का अनुमान,,
+period.inDays_one,In {{count}} day,{{count}} दिन में,,Keep {{count}} exactly (filled in by the app). Singular form (count = 1)
+period.inDays_other,In {{count}} days,{{count}} दिन में,,Keep {{count}} exactly (filled in by the app). Plural form
+period.today,Today,आज,,
+period.daysAgo_one,{{count}} day ago,{{count}} दिन पहले,,Keep {{count}} exactly (filled in by the app). Singular form (count = 1)
+period.daysAgo_other,{{count}} days ago,{{count}} दिन पहले,,Keep {{count}} exactly (filled in by the app). Plural form
+period.noDates,Record the first day of the last period to see the next expected date.,अगली तारीख देखने के लिए पिछले पीरियड का पहला दिन दर्ज करें।,,
+period.voiceBefore_one,"Voice, {{count}} day before:","आवाज़, {{count}} दिन पहले:",,Keep {{count}} exactly (filled in by the app). Singular form (count = 1)
+period.voiceBefore_other,"Voice, {{count}} days before:","आवाज़, {{count}} दिन पहले:",,Keep {{count}} exactly (filled in by the app). Plural form
+period.startedToday,Period started today,आज पीरियड शुरू हुआ,,
+period.otherDate,Or record another day,या कोई और दिन दर्ज करें,,
+period.history_one,Recorded dates ({{count}}),दर्ज तारीखें ({{count}}),,Keep {{count}} exactly (filled in by the app). Singular form (count = 1)
+period.history_other,Recorded dates ({{count}}),दर्ज तारीखें ({{count}}),,Keep {{count}} exactly (filled in by the app). Plural form
+period.average_one,Average cycle: {{count}} day,औसत चक्र: {{count}} दिन,,Keep {{count}} exactly (filled in by the app). Singular form (count = 1)
+period.average_other,Average cycle: {{count}} days,औसत चक्र: {{count}} दिन,,Keep {{count}} exactly (filled in by the app). Plural form
+period.remove,Remove,हटाएं,,
+period.removeConfirm,Remove this date?,यह तारीख हटाएं?,,
+period.settings,Settings,सेटिंग,,
+period.cycleLength,Usual cycle length (days),सामान्य चक्र (दिन),,
+period.periodLength,Period length (days),पीरियड के दिन,,
+period.remindDays,Remind this many days before,इतने दिन पहले याद दिलाएं,,
+period.remindTime,Reminder time,रिमाइंडर का समय,,
+period.enabled,Period reminders on,पीरियड रिमाइंडर चालू,,
+period.disclaimer,Dates are estimates and not medical advice.,"तारीखें अनुमान हैं, डॉक्टरी सलाह नहीं।",,
+period.todayLabel,today,आज,,
+period.expectedStart,expected start,शुरू होने का अनुमान,,
+period.expectedDay,expected,अनुमान,,
+period.alarmTitle,Period expected soon,पीरियड्स की तारीख पास है,,
+backend:push.missed.title,{0} has not taken a medicine,{0} ने दवा नहीं ली,,Keep {0} exactly (filled in by the app). Push alert to family members
+backend:push.missed.body,{1} at {2}. Open to call or play the reminder again.,{2} बजे {1}। कॉल करने या रिमाइंडर फिर बजाने के लिए खोलें।,,Keep {1} {2} exactly (filled in by the app). Push alert to family members

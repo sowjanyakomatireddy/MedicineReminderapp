@@ -41,8 +41,8 @@ export async function turnOnAlerts(): Promise<AlertsState> {
   if ((await Notification.requestPermission()) !== 'granted') return alertsState();
   const registration = await navigator.serviceWorker.register('/sw.js');
   const [{ initializeApp, getApps }, { getMessaging, getToken }] = await Promise.all([
-    import('firebase/app'),
-    import('firebase/messaging'),
+    import('@firebase/app'),
+    import('@firebase/messaging'),
   ]);
   const app = getApps()[0] ?? initializeApp(config);
   const token = await getToken(getMessaging(app), { vapidKey, serviceWorkerRegistration: registration });

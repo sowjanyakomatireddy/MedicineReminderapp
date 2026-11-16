@@ -16,7 +16,7 @@ import {
 import { findLocale } from '../i18n/locales';
 import { Alert, Button } from '../components/ui';
 import { CodeCard } from '../components/CodeCard';
-import { Avatar, BackLink, Chip, FamilyPage, Loading, SectionHeading } from '../components/layout';
+import { Avatar, BackLink, Chip, ErrorState, FamilyPage, Loading, SectionHeading } from '../components/layout';
 
 export function MembersPage() {
   const { t } = useTranslation();
@@ -28,7 +28,7 @@ export function MembersPage() {
   if (family.isError || people.isError || members.isError) {
     return (
       <FamilyPage>
-        <Alert>{t('errors.loadFailed')}</Alert>
+        <ErrorState onRetry={() => { void family.refetch(); void people.refetch(); void members.refetch(); }} />
       </FamilyPage>
     );
   }

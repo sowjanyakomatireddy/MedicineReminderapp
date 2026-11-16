@@ -10,7 +10,7 @@ import { findLocale } from '../i18n/locales';
 import { routineSentence } from '../voice/sentence';
 import { Alert, Button } from '../components/ui';
 import { PersonChips } from '../components/PersonChips';
-import { BackLink, FamilyPage, Loading } from '../components/layout';
+import { BackLink, ErrorState, FamilyPage, Loading } from '../components/layout';
 import { dayName, formatTime } from '../components/format';
 import { PeriodCard } from './PeriodCard';
 
@@ -25,7 +25,7 @@ export function RoutinePage() {
   const isEditor = family.data?.myRole === 'EDITOR';
 
   if (people.isPending || family.isPending) return <Loading />;
-  if (people.isError) return <FamilyPage><Alert>{t('errors.loadFailed')}</Alert></FamilyPage>;
+  if (people.isError) return <FamilyPage><ErrorState onRetry={() => people.refetch()} /></FamilyPage>;
 
   return (
     <FamilyPage>
@@ -64,6 +64,7 @@ function RoutineList({ person, canEdit }: { person: Person; canEdit: boolean }) 
       )}
 
       {routine.isPending && <Loading />}
+      {routine.isError && <ErrorState onRetry={() => routine.refetch()} />}
       {routine.data?.length === 0 && editing === null && (
         <p className="rounded-[18px] bg-white p-4 text-muted">{t('routine.empty')}</p>
       )}

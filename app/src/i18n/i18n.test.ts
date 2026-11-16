@@ -21,9 +21,9 @@ describe('i18n', () => {
     expect(keys(resources[code].translation).sort()).toEqual(enKeys);
   });
 
-  it('non-English files are flagged for native-speaker review', () => {
+  it('non-English files say whether a native speaker has reviewed them', () => {
     for (const l of LOCALES.filter((x) => x.code !== 'en')) {
-      expect(resources[l.code].translation._reviewStatus).toMatch(/needs review/);
+      expect(resources[l.code].translation._reviewStatus).toMatch(/needs review|reviewed by/);
     }
   });
 });

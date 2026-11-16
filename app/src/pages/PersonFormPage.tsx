@@ -6,7 +6,7 @@ import { api, ApiError, errorKey } from '../api/client';
 import { keys, useFamily, usePerson, type Person, type PersonInput } from '../api/family';
 import { LOCALES } from '../i18n/locales';
 import { Alert, Button, TextField } from '../components/ui';
-import { BackLink, FamilyPage, Loading } from '../components/layout';
+import { BackLink, ErrorState, FamilyPage, Loading } from '../components/layout';
 import { PhotoPicker } from '../components/PhotoPicker';
 import { uploadPhoto } from '../api/photos';
 
@@ -29,6 +29,10 @@ export function PersonFormPage() {
   const family = useFamily();
 
   if (family.isPending || (id && person.isPending)) return <Loading />;
+  // Never fall back to an empty "Add" form when an existing person failed to load (it would create a copy).
+  if (id && (person.isError || !person.data)) {
+    return <FamilyPage><ErrorState onRetry={() => person.refetch()} /></FamilyPage>;
+  }
   return <PersonForm person={person.data} canEdit={family.data?.myRole === 'EDITOR'} />;
 }
 

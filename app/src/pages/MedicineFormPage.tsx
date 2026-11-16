@@ -25,7 +25,7 @@ import { dayName } from '../components/format';
 import { Alert, Button } from '../components/ui';
 import { PhotoPicker } from '../components/PhotoPicker';
 import { PillIcon } from '../components/PillIcon';
-import { FamilyPage, Loading } from '../components/layout';
+import { ErrorState, FamilyPage, Loading } from '../components/layout';
 
 interface TimeDraft {
   key: number;
@@ -60,7 +60,9 @@ export function MedicineFormPage() {
   const medicine = useMedicine(id);
 
   if (family.isPending || people.isPending || (id && medicine.isPending)) return <Loading />;
-  if (people.isError || (id && medicine.isError)) return <LoadError />;
+  if (people.isError || (id && medicine.isError)) {
+    return <LoadError onRetry={() => { void people.refetch(); void medicine.refetch(); }} />;
+  }
   const list = people.data ?? [];
   if (list.length === 0) return <NoPeople />;
   const personId = medicine.data?.personId ?? params.get('person') ?? list[0].id;
@@ -477,11 +479,10 @@ function AlarmRow({ id, label, value, onChange, options, last }: {
   );
 }
 
-function LoadError() {
-  const { t } = useTranslation();
+function LoadError({ onRetry }: { onRetry: () => void }) {
   return (
     <FamilyPage nav={false}>
-      <Alert>{t('errors.loadFailed')}</Alert>
+      <ErrorState onRetry={onRetry} />
     </FamilyPage>
   );
 }

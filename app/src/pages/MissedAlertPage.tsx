@@ -7,7 +7,7 @@ import { doseKeys, useDose, useWeek, type DaySummary, type DoseDetail } from '..
 import { medicineKeys, type Day } from '../api/medicines';
 import { Alert } from '../components/ui';
 import { PillIcon } from '../components/PillIcon';
-import { BackLink, FamilyPage, Loading } from '../components/layout';
+import { BackLink, ErrorState, FamilyPage, Loading } from '../components/layout';
 import { dayName, formatTime } from '../components/format';
 
 /** The Missed dose alert (prototype "Missed alert"): call, play the reminder again, or mark as taken. */
@@ -20,7 +20,7 @@ export function MissedAlertPage() {
     return (
       <FamilyPage>
         <BackLink to="/">{t('nav.home')}</BackLink>
-        <Alert>{t('errors.loadFailed')}</Alert>
+        <ErrorState onRetry={() => dose.refetch()} />
       </FamilyPage>
     );
   }

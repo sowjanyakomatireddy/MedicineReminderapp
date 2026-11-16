@@ -164,3 +164,27 @@ Small decisions made during the build, so they can be revisited.
   `/api/people/{id}/period` (read, settings), `/period/starts` (record), `/period/starts/{date}` (remove).
   The phone's sync now also carries `routine` and the next `period` reminder.
 - **The elder's Today screen still lists medicines only**, as in the prototype; routine reminders just ring.
+
+## Phase 7
+
+- **Dependency warnings fixed (0 left):** React Router 6 → 7.18.5 (an open-redirect issue in `<Link>`; no code
+  changes needed), vitest 3 → 5.1 (test tool only), and the full `firebase` bundle replaced by just
+  `@firebase/app` + `@firebase/messaging` (the bundle pulled in Firestore's gRPC, which we never use).
+- **No banner over an open alarm:** if the alarm screen is already showing when a repeat rings, the notification is
+  updated quietly; if it was closed, the repeat posts fresh so the full screen opens again. Checked on the emulator.
+- **Accessibility:**
+  - Elder screens now meet the brief everywhere: text at least 20px, touch targets at least 56px.
+  - Every colour pair was measured against WCAG AA: all pass (the lowest is 5.1:1). Disabled buttons fade less
+    (75%) so they stay readable.
+  - axe-core checks run on every main screen in the test suite (labels, names, roles, ARIA, duplicate ids). A probe
+    confirmed axe does catch real problems in the test browser.
+- **Error, empty and loading states:** every load error offers **Try again**; a crash shows a calm message with
+  **Reload** instead of a blank page; the family app says when it is offline. Bug fixed: if an existing person
+  failed to load, the edit page fell back to an empty "Add" form, which would have created a duplicate.
+- **Translation review kit:** `npm run translations:export` makes one CSV per language (339 strings each, app and
+  backend) with English, draft, an empty "Corrected" column and notes (placeholders to keep, spoken lines, singular
+  and plural). `npm run translations:import` applies corrections and refuses any that drop a placeholder. Languages
+  stay marked "needs review" until a reviewer signs off.
+- **Release APK:** signed with a key kept outside the project (`~/.medicine-reminder/`, made by
+  `scripts/create-release-key.sh`); `scripts/build-release-apk.sh https://…` refuses plain http. Not shrunk with R8
+  (Capacitor finds plugins by reflection). Hosting is not part of the project; `docs/release.md` lists options.

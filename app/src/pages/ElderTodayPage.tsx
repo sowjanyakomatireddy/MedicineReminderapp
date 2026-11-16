@@ -97,10 +97,10 @@ function Today({ device }: { device: PairedDevice }) {
     <main lang={lang} className="mx-auto flex min-h-dvh max-w-md flex-col gap-4 px-5 pt-10 pb-6 text-[20px]">
       <header className="flex flex-col gap-1 px-1">
         <h1 className="text-[36px] leading-tight font-bold">{t('elder.today')}</h1>
-        <p className="text-base text-muted">{dateText}</p>
+        <p className="text-[20px] text-muted">{dateText}</p>
       </header>
 
-      {offline && <p role="status" className="rounded-2xl bg-white p-3 text-base text-muted">{t('elder.offline')}</p>}
+      {offline && <p role="status" className="rounded-2xl bg-white p-3 text-[20px] text-muted">{t('elder.offline')}</p>}
       {data.sync && doses.length === 0 && <p className="rounded-3xl bg-white p-6 text-[22px]">{t('elder.noneToday')}</p>}
       {!data.sync && !offline && <p role="status" className="p-2">{t('common.loading')}</p>}
 
@@ -120,7 +120,7 @@ function Today({ device }: { device: PairedDevice }) {
         </a>
       )}
       {isNativeApp() && (
-        <Link to="/elder/setup" className="self-center py-2 text-lg text-muted underline">{t('elder.setupLink')}</Link>
+        <Link to="/elder/setup" className="flex min-h-14 items-center self-center px-4 text-[20px] text-muted underline">{t('elder.setupLink')}</Link>
       )}
     </main>
   );
@@ -135,12 +135,12 @@ function DoseCard({ dose: d, t }: { dose: ElderDose; t: (k: string) => string })
   return (
     <li className={`flex flex-col gap-3 rounded-3xl p-[18px] ${card}`}>
       <div className="flex items-center justify-between gap-2">
-        {d.next && <span className="rounded-full bg-teal px-3.5 py-1 text-base font-semibold text-white">{t('elder.next')}</span>}
+        {d.next && <span className="rounded-full bg-teal px-3.5 py-1 text-[20px] font-semibold text-white">{t('elder.next')}</span>}
         {d.status === 'TAKEN' && (
-          <span className="rounded-full bg-[#1B7A34] px-3.5 py-1 text-base font-semibold text-white">✓ {t('elder.takenShort')}</span>
+          <span className="rounded-full bg-[#1B7A34] px-3.5 py-1 text-[20px] font-semibold text-white">✓ {t('elder.takenShort')}</span>
         )}
         {d.status === 'MISSED' && (
-          <span className="rounded-full bg-danger px-3.5 py-1 text-base font-semibold text-white">{t('elder.missedShort')}</span>
+          <span className="rounded-full bg-danger px-3.5 py-1 text-[20px] font-semibold text-white">{t('elder.missedShort')}</span>
         )}
         <span className={`ml-auto font-bold ${d.next ? 'text-[26px]' : 'text-xl text-muted'}`}>
           <span lang="en">{clock}</span> {t(`alarm.${periodKey(d.time)}`)}
@@ -151,7 +151,7 @@ function DoseCard({ dose: d, t }: { dose: ElderDose; t: (k: string) => string })
         <div className="flex flex-col gap-1.5">
           <span className="text-[26px] leading-snug font-bold">{d.title}</span>
           {d.food !== 'ANY' && (
-            <span className={`self-start rounded-full px-3 py-1 text-base font-semibold ${d.food === 'BEFORE' ? 'bg-before-bg text-before-fg' : 'bg-after-bg text-after-fg'}`}>
+            <span className={`self-start rounded-full px-3 py-1 text-[20px] font-semibold ${d.food === 'BEFORE' ? 'bg-before-bg text-before-fg' : 'bg-after-bg text-after-fg'}`}>
               {t(`food.${d.food}`)}
             </span>
           )}

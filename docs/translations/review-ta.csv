@@ -1,0 +1,340 @@
+﻿key,English,Current draft,Corrected (leave empty if the draft is right),Notes
+appName,Medicine Reminder,மருந்து நினைவூட்டல்,,
+common.loading,Loading…,ஏற்றுகிறது…,,
+common.language,Language,மொழி,,
+common.logout,Log out,வெளியேறு,,
+common.disclaimer,Confirm medicines and food timing with the doctor.,மருந்துகளையும் உணவு நேரத்தையும் மருத்துவரிடம் உறுதிப்படுத்தவும்.,,
+common.save,Save,சேமி,,
+common.edit,Edit,மாற்று,,
+common.retry,Try again,மீண்டும் முயற்சிக்கவும்,,
+common.copy,Copy code,குறியீட்டை நகலெடு,,
+common.copied,Copied,நகலெடுக்கப்பட்டது,,
+common.share,Share,பகிர்,,
+common.back,Back,பின் செல்,,
+common.changePhoto,Change photo,புகைப்படத்தை மாற்று,,
+common.removePhoto,Remove photo,புகைப்படத்தை நீக்கு,,
+common.cancel,Cancel,ரத்து,,
+auth.loginTitle,Log in,உள்நுழை,,
+auth.registerTitle,Create an account,கணக்கு உருவாக்கு,,
+auth.email,Email,மின்னஞ்சல்,,
+auth.password,Password,கடவுச்சொல்,,
+auth.passwordHint,At least 8 characters,குறைந்தது 8 எழுத்துகள்,,
+auth.displayName,Your name,உங்கள் பெயர்,,
+auth.login,Log in,உள்நுழை,,
+auth.register,Create account,கணக்கு உருவாக்கு,,
+auth.noAccount,No account yet?,கணக்கு இல்லையா?,,
+auth.haveAccount,Already have an account?,ஏற்கனவே கணக்கு உள்ளதா?,,
+errors.generic,Something went wrong. Please try again.,ஏதோ தவறு நடந்தது. மீண்டும் முயற்சிக்கவும்.,,
+errors.wrongCredentials,Email or password is wrong.,மின்னஞ்சல் அல்லது கடவுச்சொல் தவறு.,,
+errors.emailTaken,An account with this email already exists.,இந்த மின்னஞ்சலுடன் ஏற்கனவே கணக்கு உள்ளது.,,
+errors.tooMany,Too many attempts. Please wait a minute and try again.,பல முயற்சிகள். ஒரு நிமிடம் காத்திருந்து மீண்டும் முயற்சிக்கவும்.,,
+errors.network,Cannot reach the server. Check your internet.,சர்வருடன் இணைக்க முடியவில்லை. இணையத்தைச் சரிபார்க்கவும்.,,
+errors.forbidden,Only family editors can change this.,குடும்ப எடிட்டர்கள் மட்டுமே இதை மாற்ற முடியும்.,,
+errors.conflict,This clashes with a change someone else made. Please refresh.,இது வேறொருவர் செய்த மாற்றத்துடன் முரண்படுகிறது. புதுப்பிக்கவும்.,,
+errors.badCode,"This code is wrong, already used, or expired. Ask the family for a new code.","இந்தக் குறியீடு தவறு, ஏற்கனவே பயன்படுத்தப்பட்டது, அல்லது காலாவதியானது. குடும்பத்திடம் புதிய குறியீடு கேளுங்கள்.",,
+errors.alreadyInFamily,You are already in a family.,நீங்கள் ஏற்கனவே ஒரு குடும்பத்தில் உள்ளீர்கள்.,,
+errors.lastEditor,The family needs at least one editor. Make someone else an editor first.,குடும்பத்தில் குறைந்தது ஒரு எடிட்டர் வேண்டும். முதலில் வேறொருவரை எடிட்டர் ஆக்குங்கள்.,,
+errors.loadFailed,Could not load. Check your internet and try again.,ஏற்ற முடியவில்லை. இணையத்தைச் சரிபார்த்து மீண்டும் முயற்சிக்கவும்.,,
+errors.checkFields,Some fields need fixing.,சில விவரங்களைச் சரிசெய்ய வேண்டும்.,,
+errors.offline,You are offline. Changes will not be saved until the internet is back. His alarms still ring.,நீங்கள் ஆஃப்லைனில் உள்ளீர்கள். இணையம் வரும் வரை மாற்றங்கள் சேமிக்கப்படாது. அவர்களின் அலாரங்கள் ஒலிக்கும்.,,
+errors.crashed,Something went wrong on this screen.,இந்தத் திரையில் ஏதோ தவறு நடந்தது.,,
+errors.reload,Reload,மீண்டும் ஏற்று,,
+nav.label,Main,முதன்மை மெனு,,
+nav.home,Home,முகப்பு,,
+nav.family,Family,குடும்பம்,,
+nav.medicines,Medicines,மருந்துகள்,,
+nav.routine,Routine,வழக்கம்,,
+home.welcome,"Hello, {{name}}","வணக்கம், {{name}}",,Keep {{name}} exactly (filled in by the app)
+home.familyLabel,Family,குடும்பம்,,
+home.addPerson,+ Add,+ சேர்,,
+home.today,Today · {{name}} · {{language}},இன்று · {{name}} · {{language}},,Keep {{name}} {{language}} exactly (filled in by the app)
+home.takenOf,{{taken}} of {{total}},{{total}} இல் {{taken}},,Keep {{taken}} {{total}} exactly (filled in by the app)
+home.medicinesTaken,medicines taken,மருந்துகள் எடுக்கப்பட்டன,,
+home.schedule,Schedule,அட்டவணை,,
+home.noMedicines,No medicines yet for {{name}}.,{{name}} க்கு இன்னும் மருந்துகள் இல்லை.,,Keep {{name}} exactly (filled in by the app)
+home.addMedicine,Add a medicine,மருந்து சேர்,,
+home.noPeople,First add the person you want to remind.,முதலில் நினைவூட்ட வேண்டியவரைச் சேருங்கள்.,,
+home.addFirstPerson,Add a person,ஒருவரைச் சேர்,,
+home.doseLine,{{time}} · {{food}} · alert {{alert}},{{time}} · {{food}} · எச்சரிக்கை {{alert}},,Keep {{time}} {{food}} {{alert}} exactly (filled in by the app)
+home.alerts,Alerts,எச்சரிக்கைகள்,,
+start.title,Set up your family,உங்கள் குடும்பத்தை அமையுங்கள்,,
+start.intro,"Create a family for the people you look after, or join one with a code from a relative.","நீங்கள் கவனித்துக்கொள்பவர்களுக்காக ஒரு குடும்பத்தை உருவாக்குங்கள், அல்லது உறவினர் தந்த குறியீட்டுடன் சேருங்கள்.",,
+start.createTitle,Create a family,குடும்பத்தை உருவாக்கு,,
+start.familyName,Family name,குடும்பப் பெயர்,,
+start.familyNameHint,For example: Reddy family,எ.கா.: ரெட்டி குடும்பம்,,
+start.create,Create family,குடும்பத்தை உருவாக்கு,,
+start.joinTitle,Join a family,குடும்பத்தில் சேர்,,
+start.joinIntro,Ask a family editor for an invite code.,குடும்ப எடிட்டரிடம் அழைப்புக் குறியீடு கேளுங்கள்.,,
+start.code,Family code,குடும்பக் குறியீடு,,
+start.join,Join,சேர்,,
+members.title,Our family,எங்கள் குடும்பம்,,
+members.intro,"Each person gets their own medicines, routine and voice language.","ஒவ்வொருவருக்கும் தனி மருந்துகள், தினசரி வழக்கம், குரல் மொழி உண்டு.",,
+members.peopleHeading,People we remind,நாங்கள் நினைவூட்டுபவர்கள்,,
+members.voice,Voice:,குரல்:,,
+members.phoneLinked,Phone linked,தொலைபேசி இணைக்கப்பட்டது,,
+members.noPhone,No phone yet,இன்னும் தொலைபேசி இல்லை,,
+members.setUpPhone,Set up phone,தொலைபேசி அமை,,
+members.setUpPhoneFor,Set up {{name}}’s phone,{{name}} தொலைபேசியை அமை,,Keep {{name}} exactly (filled in by the app)
+members.editPerson,Edit {{name}},{{name}} விவரங்களை மாற்று,,Keep {{name}} exactly (filled in by the app)
+members.noPeople,No one yet. Add the first person you want to remind.,இன்னும் யாரும் இல்லை. நினைவூட்ட வேண்டிய முதல் நபரைச் சேருங்கள்.,,
+members.addPerson,+ Add a person to remind,+ நினைவூட்ட ஒருவரைச் சேர்,,
+members.familyHeading,Family who get alerts,எச்சரிக்கை பெறும் குடும்பத்தினர்,,
+members.you,You,நீங்கள்,,
+members.roleEDITOR,Can edit everything,அனைத்தையும் மாற்றலாம்,,
+members.roleVIEWER,Missed-dose alerts,மருந்து தவறினால் எச்சரிக்கை,,
+members.roleFor,What {{name}} can do,{{name}} என்ன செய்யலாம்,,Keep {{name}} exactly (filled in by the app)
+members.remove,Remove {{name}},{{name}} ஐ நீக்கு,,Keep {{name}} exactly (filled in by the app)
+members.removeConfirm,Remove {{name}} from the family?,{{name}} ஐக் குடும்பத்திலிருந்து நீக்கவா?,,Keep {{name}} exactly (filled in by the app)
+members.leave,Leave family,குடும்பத்திலிருந்து விலகு,,
+members.leaveConfirm,Leave this family? You will stop getting alerts.,இந்தக் குடும்பத்திலிருந்து விலகவா? உங்களுக்கு எச்சரிக்கைகள் வராது.,,
+members.inviteHeading,Invite a family member,குடும்ப உறுப்பினரை அழை,,
+members.inviteRole,They will get,அவர்களுக்குக் கிடைப்பது,,
+members.makeInvite,Make an invite code,அழைப்புக் குறியீடு உருவாக்கு,,
+members.inviteHelp,"They create an account in this app, choose “Join a family”, and type this code.","அவர்கள் இந்த ஆப்பில் கணக்கு உருவாக்கி, “குடும்பத்தில் சேர்” என்பதைத் தேர்ந்தெடுத்து, இந்தக் குறியீட்டை உள்ளிட வேண்டும்.",,
+members.note,Family members join with a code. They get alerts on their own phone. Only people you allow can change medicines.,குடும்பத்தினர் குறியீட்டுடன் சேருவார்கள். அவர்களின் சொந்தத் தொலைபேசியில் எச்சரிக்கைகள் வரும். நீங்கள் அனுமதிப்பவர்கள் மட்டுமே மருந்துகளை மாற்ற முடியும்.,,
+members.medicines_one,{{count}} medicine,{{count}} மருந்து,,Keep {{count}} exactly (filled in by the app). Singular form (count = 1)
+members.medicines_other,{{count}} medicines,{{count}} மருந்துகள்,,Keep {{count}} exactly (filled in by the app). Plural form
+members.periodDates,Period dates,மாதவிடாய் தேதிகள்,,
+person.addTitle,Add a person to remind,நினைவூட்ட ஒருவரைச் சேர்,,
+person.editTitle,Edit {{name}},{{name}} விவரங்களை மாற்று,,Keep {{name}} exactly (filled in by the app)
+person.name,Name,பெயர்,,
+person.nameHint,"What the voice calls them, for example Thatha or Amma.","குரல் அவர்களை என்ன பெயரில் அழைக்க வேண்டும், எ.கா. தாத்தா அல்லது பாட்டி.",,
+person.voiceLanguage,Voice language,குரல் மொழி,,
+person.voiceHint,The alarm speaks in this language. It can be different from your app language.,அலாரம் இந்த மொழியில் பேசும். இது உங்கள் ஆப் மொழியிலிருந்து வேறாக இருக்கலாம்.,,
+person.timeZone,Time zone,நேர மண்டலம்,,
+person.delete,Delete this person,இவரை நீக்கு,,
+person.deleteConfirm,Delete {{name}}? Their phone will be unlinked.,{{name}} ஐ நீக்கவா? அவர்களின் தொலைபேசி இணைப்பு நீக்கப்படும்.,,Keep {{name}} exactly (filled in by the app)
+person.viewerNote,Only family editors can change this.,குடும்ப எடிட்டர்கள் மட்டுமே இதை மாற்ற முடியும்.,,
+person.photo,Photo (optional),புகைப்படம் (விருப்பம்),,
+person.phone,Their phone number (optional),அவர்களின் தொலைபேசி எண் (விருப்பம்),,
+person.phoneHint,For the Call button when a dose is missed.,மருந்து தவறும்போது அழைப்பு பொத்தானுக்கு.,,
+person.familyPhone,Family number their phone calls (optional),அவர்களின் தொலைபேசி அழைக்கும் குடும்ப எண் (விருப்பம்),,
+person.familyPhoneHint,Shown as “Call family” on their phone.,அவர்களின் தொலைபேசியில் “குடும்பத்தை அழை” என்று தெரியும்.,,
+person.periodTracking,Period date reminders,மாதவிடாய் தேதி நினைவூட்டல்கள்,,
+person.periodTrackingHint,Estimate the next date and remind her by voice a few days before. Not medical advice.,"அடுத்த தேதியை மதிப்பிட்டு, சில நாட்கள் முன் குரலில் நினைவூட்டும். மருத்துவ ஆலோசனை அல்ல.",,
+setup.title,Set up {{name}}’s phone,{{name}} தொலைபேசியை அமை,,Keep {{name}} exactly (filled in by the app)
+setup.intro,"Do this once, holding their phone. After that the alarm rings by itself, even when the phone is locked.",அவர்களின் தொலைபேசியைக் கையில் வைத்து இதை ஒருமுறை செய்யுங்கள். பிறகு தொலைபேசி பூட்டியிருந்தாலும் அலாரம் தானாக ஒலிக்கும்.,,
+setup.progress,{{done}} of {{total}} steps done,{{total}} இல் {{done}} படிகள் முடிந்தன,,Keep {{done}} {{total}} exactly (filled in by the app)
+setup.step1Title,Install the app and join the family,ஆப்பை நிறுவி குடும்பத்தில் சேர்,,
+setup.step1Hint,Type the family code on their phone.,அவர்களின் தொலைபேசியில் குடும்பக் குறியீட்டை உள்ளிடுங்கள்.,,
+setup.step2Title,Allow notifications,அறிவிப்புகளை அனுமதி,,
+setup.step2Hint,So the reminder can appear on the screen.,நினைவூட்டல் திரையில் தோன்றுவதற்கு.,,
+setup.step3Title,Allow alarms at exact times,சரியான நேர அலாரங்களை அனுமதி,,
+setup.step3Hint,Needed so the 7:00 alarm is not late.,7:00 அலாரம் தாமதமாகாமல் இருக்க.,,
+setup.step4Title,Show over the lock screen,பூட்டுத் திரையின் மேல் காட்டு,,
+setup.step4Hint,So the big alarm opens without unlocking.,திறக்காமலேயே பெரிய அலாரம் தோன்ற.,,
+setup.step5Title,Turn off battery saving for this app,இந்த ஆப்புக்கு பேட்டரி சேமிப்பை நிறுத்து,,
+setup.step5Hint,Stops the phone from closing the app at night.,இரவில் தொலைபேசி ஆப்பை மூடாமல் இருக்க.,,
+setup.done,Done,முடிந்தது,,
+setup.notDone,Not done,முடியவில்லை,,
+setup.tapHint,"Tap a step to tick it off. On some phones (Xiaomi, Samsung, Oppo, Vivo) the battery step is the one that matters most.","ஒரு படியைக் குறிக்க அதைத் தொடுங்கள். சில தொலைபேசிகளில் (Xiaomi, Samsung, Oppo, Vivo) பேட்டரி படிதான் மிக முக்கியம்.",,
+setup.codeHeading,Family code for this phone,இந்தத் தொலைபேசிக்கான குடும்பக் குறியீடு,,
+setup.makeCode,Show a family code,குடும்பக் குறியீட்டைக் காட்டு,,
+setup.codeHelp,"On their phone, open {{url}} and type this code.",அவர்களின் தொலைபேசியில் {{url}} ஐத் திறந்து இந்தக் குறியீட்டை உள்ளிடுங்கள்.,,Keep {{url}} exactly (filled in by the app)
+setup.linkedHeading,Linked phones,இணைக்கப்பட்ட தொலைபேசிகள்,,
+setup.linkedOn,Linked {{date}},{{date}} அன்று இணைக்கப்பட்டது,,Keep {{date}} exactly (filled in by the app)
+setup.unknownPhone,Phone,தொலைபேசி,,
+setup.unlink,Unlink,இணைப்பை நீக்கு,,
+setup.unlinkConfirm,Unlink this phone? It will stop getting reminders.,இந்தத் தொலைபேசியின் இணைப்பை நீக்கவா? அதற்கு நினைவூட்டல்கள் வராது.,,
+setup.testAlarm,Ring a test alarm now,இப்போது சோதனை அலாரம் ஒலிக்கச் செய்,,
+setup.testAlarmLater,Available in the Android app.,Android ஆப்பில் கிடைக்கும்.,,
+code.expires,"Works once, until {{time}}.","ஒருமுறை மட்டுமே வேலை செய்யும், {{time}} வரை.",,Keep {{time}} exactly (filled in by the app)
+code.spoken,Code: {{code}},குறியீடு: {{code}},,Keep {{code}} exactly (filled in by the app)
+elder.todayTitle,Today's medicines,இன்றைய மருந்துகள்,,Shown to the elder: short and simple
+elder.empty,Medicines will appear here.,மருந்துகள் இங்கே தெரியும்.,,Shown to the elder: short and simple
+elder.hello,"Hello, {{name}}","வணக்கம், {{name}}",,Keep {{name}} exactly (filled in by the app). Shown to the elder: short and simple
+elder.pairTitle,Link this phone,இந்தத் தொலைபேசியை இணை,,Shown to the elder: short and simple
+elder.pairIntro,Type the family code from the family app.,குடும்ப ஆப்பில் உள்ள குடும்பக் குறியீட்டை உள்ளிடுங்கள்.,,Shown to the elder: short and simple
+elder.code,Family code,குடும்பக் குறியீடு,,Shown to the elder: short and simple
+elder.next,Next,அடுத்து,,Shown to the elder: short and simple
+elder.whoTitle,Which person is this phone?,இந்தத் தொலைபேசி யாருடையது?,,Shown to the elder: short and simple
+elder.noPeople,No one has been added yet. Add a person in the family app first.,இன்னும் யாரும் சேர்க்கப்படவில்லை. முதலில் குடும்ப ஆப்பில் ஒருவரைச் சேருங்கள்.,,Shown to the elder: short and simple
+elder.back,Back,பின் செல்,,Shown to the elder: short and simple
+elder.setupLink,Phone setup,தொலைபேசி அமைப்பு,,Shown to the elder: short and simple
+elder.today,Today,இன்று,,Shown to the elder: short and simple
+elder.takenShort,Taken,எடுத்துக்கொண்டீர்கள்,,Shown to the elder: short and simple
+elder.missedShort,Missed,தவறியது,,Shown to the elder: short and simple
+elder.callFamily,Call family,குடும்பத்தை அழை,,Shown to the elder: short and simple
+elder.offline,No internet. Showing the saved list; alarms still ring.,இணையம் இல்லை. சேமித்த பட்டியல் காட்டப்படுகிறது; அலாரங்கள் ஒலிக்கும்.,,Shown to the elder: short and simple
+elder.noneToday,No medicines today.,இன்று மருந்துகள் இல்லை.,,Shown to the elder: short and simple
+status.UPCOMING,Upcoming,வரவிருக்கிறது,,
+status.DUE,Ringing now,இப்போது ஒலிக்கிறது,,
+status.UNCONFIRMED,Not confirmed yet,இன்னும் உறுதியாகவில்லை,,
+status.TAKEN,Taken,எடுத்துக்கொண்டார்,,
+status.MISSED,Missed,தவறியது,,
+food.BEFORE,Before food,உணவுக்கு முன்,,
+food.AFTER,After food,உணவுக்குப் பின்,,
+food.ANY,Any time,எப்போது வேண்டுமானாலும்,,
+shape.ROUND,Round,வட்டம்,,
+shape.OVAL,Oval,நீள்வட்டம்,,
+shape.CAPSULE,Capsule,கேப்சூல்,,
+shape.OTHER,Other,மற்றவை,,
+colour.WHITE,White,வெள்ளை,,
+colour.YELLOW,Yellow,மஞ்சள்,,
+colour.ORANGE,Orange,ஆரஞ்சு,,
+colour.PINK,Pink,இளஞ்சிவப்பு,,
+colour.RED,Red,சிவப்பு,,
+colour.BLUE,Blue,நீலம்,,
+colour.GREEN,Green,பச்சை,,
+colour.BROWN,Brown,பழுப்பு,,
+colour.MIXED,Two colours,இரு நிறம்,,
+days.everyDay,Every day,தினமும்,,
+days.chooseDays,Chosen days,தேர்ந்தெடுத்த நாட்கள்,,
+medicine.addTitle,Add a medicine,மருந்து சேர்,,
+medicine.editTitle,Edit medicine,மருந்தை மாற்று,,
+medicine.forPerson,For {{name}},{{name}} க்கு,,Keep {{name}} exactly (filled in by the app)
+medicine.forWho,Who is it for?,யாருக்கு?,,
+medicine.photo,Photo of tablet,மாத்திரையின் புகைப்படம்,,
+medicine.name,Medicine name,மருந்தின் பெயர்,,
+medicine.voiceName,What the voice calls it,குரல் இதை என்ன பெயரில் சொல்ல வேண்டும்,,
+medicine.voiceLanguage,Voice language,குரல் மொழி,,
+medicine.voiceLanguageNote,This changes the voice for all of {{name}}’s reminders.,இது {{name}} இன் எல்லா நினைவூட்டல்களின் குரலையும் மாற்றும்.,,Keep {{name}} exactly (filled in by the app)
+medicine.preview,Voice preview:,குரல் முன்னோட்டம்:,,
+medicine.previewPlaceholder,…,…,,
+medicine.listen,Listen,கேள்,,
+medicine.noVoice,This device has no {{language}} voice to play the preview. Their phone is checked when you set it up.,முன்னோட்டத்தை ஒலிக்க இந்தச் சாதனத்தில் {{language}} குரல் இல்லை. அமைக்கும்போது அவர்களின் தொலைபேசி சரிபார்க்கப்படும்.,,Keep {{language}} exactly (filled in by the app)
+medicine.time,Time,நேரம்,,
+medicine.timeN,Time {{n}},நேரம் {{n}},,Keep {{n}} exactly (filled in by the app)
+medicine.repeat,Repeat,மீண்டும்,,
+medicine.withFood,With food,உணவுடன்,,
+medicine.addTime,+ Add another time,+ இன்னொரு நேரம் சேர்,,
+medicine.removeTime,Remove this time,இந்த நேரத்தை நீக்கு,,
+medicine.timeActive,Alarm on,அலாரம் இயக்கத்தில்,,
+medicine.alarm,Alarm behaviour,அலாரம் நடத்தை,,
+medicine.firstReminder,First reminder,முதல் நினைவூட்டல்,,
+medicine.atTheTime,At the time,அதே நேரத்தில்,,
+medicine.minBefore,{{count}} min before,{{count}} நிமி. முன்,,Keep {{count}} exactly (filled in by the app)
+medicine.repeatEvery,Repeat every,இத்தனை நேரத்துக்கு ஒருமுறை,,
+medicine.minutes,{{count}} min,{{count}} நிமி.,,Keep {{count}} exactly (filled in by the app)
+medicine.stopAfter,Stop automatically after,தானாக நிற்கும் நேரம்,,
+medicine.looksLike,Looks like (optional),எப்படி இருக்கும் (விருப்பம்),,
+medicine.shape,Shape,வடிவம்,,
+medicine.colour,Colour,நிறம்,,
+medicine.notes,Notes (optional),குறிப்புகள் (விருப்பம்),,
+medicine.notesHint,For example: 1 tablet. Shown to the family.,எ.கா.: 1 மாத்திரை. குடும்பத்துக்குத் தெரியும்.,,
+medicine.save,Save and send to {{name}}’s phone,சேமித்து {{name}} தொலைபேசிக்கு அனுப்பு,,Keep {{name}} exactly (filled in by the app)
+medicine.delete,Delete this medicine,இந்த மருந்தை நீக்கு,,
+medicine.deleteConfirm,Delete {{name}}? Its alarms will stop.,{{name}} ஐ நீக்கவா? அதன் அலாரங்கள் நிற்கும்.,,Keep {{name}} exactly (filled in by the app)
+medicine.needDay,Choose at least one day.,குறைந்தது ஒரு நாளைத் தேர்ந்தெடுக்கவும்.,,
+medicines.title,Medicines,மருந்துகள்,,
+medicines.editNamed,Edit {{name}},{{name}} ஐ மாற்று,,Keep {{name}} exactly (filled in by the app)
+medicines.paused,Paused,நிறுத்தப்பட்டது,,
+voice.sentence,"{{person}}, this is your {{voiceName}}. {{foodPhrase}}.","{{person}}, இது {{voiceName}}. {{foodPhrase}}.",,Keep {{person}} {{voiceName}} {{foodPhrase}} exactly (filled in by the app). SPOKEN aloud by the alarm: should sound natural and polite to an elder
+voice.foodBEFORE,Take it before food,சாப்பிடுவதற்கு முன் எடுத்துக்கொள்ளுங்கள்,,SPOKEN aloud by the alarm: should sound natural and polite to an elder
+voice.foodAFTER,Take it after food,சாப்பிட்ட பிறகு எடுத்துக்கொள்ளுங்கள்,,SPOKEN aloud by the alarm: should sound natural and polite to an elder
+voice.foodANY,Take it now,இப்போது எடுத்துக்கொள்ளுங்கள்,,SPOKEN aloud by the alarm: should sound natural and polite to an elder
+voice.routineSentence,"{{person}}, {{text}}.","{{person}}, {{text}}.",,Keep {{person}} {{text}} exactly (filled in by the app). SPOKEN aloud by the alarm: should sound natural and polite to an elder
+voice.periodSentence,"{{person}}, your period is expected in a few days.","{{person}}, மாதவிடாய் தேதி நெருங்குகிறது.",,Keep {{person}} exactly (filled in by the app). SPOKEN aloud by the alarm: should sound natural and polite to an elder
+alarm.medicineTime,MEDICINE TIME,மருந்து நேரம்,,Shown to the elder: short and simple
+alarm.routineTime,ROUTINE,தினசரி வழக்கம்,,Shown to the elder: short and simple
+alarm.taken,I have taken it,எடுத்துக்கொண்டேன்,,Shown to the elder: short and simple
+alarm.takenDone,Well done. Taken.,நல்லது! மருந்து எடுத்துக்கொண்டீர்கள்.,,Shown to the elder: short and simple
+alarm.listenAgain,Listen again,மீண்டும் கேள்,,Shown to the elder: short and simple
+alarm.voiceSays,VOICE SAYS,குரல் சொல்வது,,Shown to the elder: short and simple
+alarm.morning,Morning,காலை,,Shown to the elder: short and simple
+alarm.afternoon,Afternoon,மதியம்,,Shown to the elder: short and simple
+alarm.evening,Evening,மாலை,,Shown to the elder: short and simple
+alarm.night,Night,இரவு,,Shown to the elder: short and simple
+alarm.takenTitle,Well done!,மிக நல்லது!,,Shown to the elder: short and simple
+alarm.takenLine,{{name}} taken,{{name}} எடுத்துக்கொண்டீர்கள்,,Keep {{name}} exactly (filled in by the app). Shown to the elder: short and simple
+alarm.nextMedicine,Next medicine,அடுத்த மருந்து,,Shown to the elder: short and simple
+alarm.familyInformed,The family has been told,குடும்பத்துக்குத் தெரிவித்தோம்,,Shown to the elder: short and simple
+alarm.familyLater,The family will be told when the phone is online,இணையம் வந்ததும் குடும்பத்துக்குத் தெரிவிப்போம்,,Shown to the elder: short and simple
+alarm.ok,OK,சரி,,Shown to the elder: short and simple
+elderSetup.title,Set up this phone,இந்தத் தொலைபேசியை அமை,,Shown to the elder: short and simple
+elderSetup.intro,"Allow each step so the alarm rings on time, even when the phone is locked.","தொலைபேசி பூட்டியிருந்தாலும் அலாரம் சரியான நேரத்தில் ஒலிக்க, ஒவ்வொரு படியையும் அனுமதியுங்கள்.",,Shown to the elder: short and simple
+elderSetup.notifications,Show reminders,நினைவூட்டல்களைக் காட்டு,,Shown to the elder: short and simple
+elderSetup.exactAlarms,Alarms at the exact time,சரியான நேர அலாரங்கள்,,Shown to the elder: short and simple
+elderSetup.lockScreen,Show over the lock screen,பூட்டுத் திரையின் மேல் காட்டு,,Shown to the elder: short and simple
+elderSetup.battery,No battery saving for this app,இந்த ஆப்புக்கு பேட்டரி சேமிப்பு வேண்டாம்,,Shown to the elder: short and simple
+elderSetup.autostart,Allow autostart,தானியங்கித் தொடக்கத்தை அனுமதி,,Shown to the elder: short and simple
+elderSetup.autostartHint,"On {{maker}} phones, also allow this app to start by itself:",{{maker}} தொலைபேசிகளில் இந்த ஆப் தானாகத் தொடங்கவும் அனுமதியுங்கள்:,,Keep {{maker}} exactly (filled in by the app). Shown to the elder: short and simple
+elderSetup.xiaomiLock,Allow “Show on lock screen”,“பூட்டுத் திரையில் காட்டு” அனுமதி,,Shown to the elder: short and simple
+elderSetup.voice,{{language}} voice,{{language}} குரல்,,Keep {{language}} exactly (filled in by the app). Shown to the elder: short and simple
+elderSetup.voiceMissing,Install the {{language}} voice so the alarm can speak.,அலாரம் பேச {{language}} குரலை நிறுவுங்கள்.,,Keep {{language}} exactly (filled in by the app). Shown to the elder: short and simple
+elderSetup.installVoice,Install voice,குரலை நிறுவு,,Shown to the elder: short and simple
+elderSetup.noEngine,This phone has no text-to-speech. Install “Speech Services by Google” from the Play Store.,இந்தத் தொலைபேசியில் உரை-பேச்சு இல்லை. Play Store இலிருந்து “Speech Services by Google” ஐ நிறுவுங்கள்.,,Shown to the elder: short and simple
+elderSetup.ok,Done,முடிந்தது,,Shown to the elder: short and simple
+elderSetup.notOk,Not yet,இன்னும் இல்லை,,Shown to the elder: short and simple
+elderSetup.fix,Open settings,அமைப்புகளைத் திற,,Shown to the elder: short and simple
+elderSetup.allow,Allow,அனுமதி,,Shown to the elder: short and simple
+elderSetup.testAlarm,Ring a test alarm in 10 seconds,10 வினாடிகளில் சோதனை அலாரம்,,Shown to the elder: short and simple
+elderSetup.testHint,"Then lock the phone. The alarm should ring, show over the lock screen and speak.","பிறகு தொலைபேசியைப் பூட்டுங்கள். அலாரம் ஒலித்து, பூட்டுத் திரையில் தோன்றி, பேச வேண்டும்.",,Shown to the elder: short and simple
+elderSetup.testScheduled,Test alarm set. Lock the phone now and wait 10 seconds.,சோதனை அலாரம் அமைக்கப்பட்டது. இப்போது தொலைபேசியைப் பூட்டி 10 வினாடிகள் காத்திருங்கள்.,,Shown to the elder: short and simple
+elderSetup.testMedicine,test tablet,சோதனை மாத்திரை,,Shown to the elder: short and simple
+elderSetup.testSubtitle,This is only a test,இது சோதனை மட்டுமே,,Shown to the elder: short and simple
+elderSetup.onlyAndroid,These checks work in the Android app on their phone.,இந்தச் சோதனைகள் அவர்களின் தொலைபேசியில் உள்ள Android ஆப்பில் வேலை செய்யும்.,,Shown to the elder: short and simple
+elderSetup.done,Finish,முடி,,Shown to the elder: short and simple
+elderSetup.details,Technical details,தொழில்நுட்ப விவரங்கள்,,Shown to the elder: short and simple
+missed.heading,{{name}} has not taken the {{time}} medicine,{{name}} {{time}} மருந்தை எடுக்கவில்லை,,Keep {{name}} {{time}} exactly (filled in by the app)
+missed.late_one,{{count}} min late,{{count}} நிமி. தாமதம்,,Keep {{count}} exactly (filled in by the app). Singular form (count = 1)
+missed.late_other,{{count}} min late,{{count}} நிமி. தாமதம்,,Keep {{count}} exactly (filled in by the app). Plural form
+missed.rang_one,Missed · alarm rang {{count}} time,தவறியது · அலாரம் {{count}} முறை ஒலித்தது,,Keep {{count}} exactly (filled in by the app). Singular form (count = 1)
+missed.rang_other,Missed · alarm rang {{count}} times,தவறியது · அலாரம் {{count}} முறை ஒலித்தது,,Keep {{count}} exactly (filled in by the app). Plural form
+missed.takenNow,Marked as taken,எடுத்ததாகக் குறிக்கப்பட்டது,,
+missed.call,Call {{name}},{{name}} ஐ அழை,,Keep {{name}} exactly (filled in by the app)
+missed.noPhone,Add {{name}}’s phone number to call from here.,இங்கிருந்து அழைக்க {{name}} இன் தொலைபேசி எண்ணைச் சேருங்கள்.,,Keep {{name}} exactly (filled in by the app)
+missed.replay,Play the reminder again,நினைவூட்டலை மீண்டும் ஒலிக்கச் செய்,,
+missed.replaying,Ringing on {{name}}’s phone now.,இப்போது {{name}} இன் தொலைபேசியில் ஒலிக்கிறது.,,Keep {{name}} exactly (filled in by the app)
+missed.replayNoPush,"Push messages are not set up yet, so the phone cannot be rung from here. Please call.","புஷ் செய்திகள் இன்னும் அமைக்கப்படவில்லை, எனவே இங்கிருந்து தொலைபேசியை ஒலிக்க முடியாது. தயவுசெய்து அழையுங்கள்.",,
+missed.replayNoPhone,{{name}}’s phone cannot be reached. Please call.,{{name}} இன் தொலைபேசியை அடைய முடியவில்லை. தயவுசெய்து அழையுங்கள்.,,Keep {{name}} exactly (filled in by the app)
+missed.markTaken,Already taken? Mark as taken,ஏற்கனவே எடுத்தாரா? எடுத்ததாகக் குறி,,
+missed.footer,Alerts go to everyone in the family group.,எச்சரிக்கைகள் குடும்பத்தில் அனைவருக்கும் செல்லும்.,,
+missed.week,This week,இந்த வாரம்,,
+missed.weekAll,All taken,அனைத்தும் எடுத்தார்,,
+missed.weekMissed_one,{{count}} missed,{{count}} தவறியது,,Keep {{count}} exactly (filled in by the app). Singular form (count = 1)
+missed.weekMissed_other,{{count}} missed,{{count}} தவறின,,Keep {{count}} exactly (filled in by the app). Plural form
+missed.weekMissedLegend,Missed,தவறியது,,
+missed.weekNotYet,Not yet,இன்னும் இல்லை,,
+missed.weekToday,Today: {{taken}} of {{total}} taken,இன்று: {{total}} இல் {{taken}} எடுத்தார்,,Keep {{taken}} {{total}} exactly (filled in by the app)
+alerts.title,Get missed-dose alerts on this device,இந்தச் சாதனத்தில் மருந்து தவறிய எச்சரிக்கைகளைப் பெறு,,
+alerts.body,"We will send an alert here if a dose is missed, even when this app is closed.","மருந்து தவறினால், இந்த ஆப் மூடியிருந்தாலும் இங்கே எச்சரிக்கை அனுப்புவோம்.",,
+alerts.enable,Turn on alerts,எச்சரிக்கைகளை இயக்கு,,
+alerts.iosHint,"On iPhone: tap Share, then “Add to Home Screen”. Open the app from the Home Screen and turn on alerts there.",iPhone இல்: Share ஐத் தொட்டு “Add to Home Screen” தேர்ந்தெடுங்கள். முகப்புத் திரையிலிருந்து ஆப்பைத் திறந்து அங்கே எச்சரிக்கைகளை இயக்குங்கள்.,,
+alerts.blocked,Alerts are blocked for this site. Allow notifications in the browser settings.,இந்தத் தளத்துக்கு எச்சரிக்கைகள் தடுக்கப்பட்டுள்ளன. உலாவி அமைப்புகளில் அறிவிப்புகளை அனுமதியுங்கள்.,,
+routine.title,Daily routine,தினசரி வழக்கம்,,
+routine.personDay,{{name}}’s day,{{name}} இன் நாள்,,Keep {{name}} exactly (filled in by the app)
+routine.add,+ Add,+ சேர்,,
+routine.empty,No routine reminders yet.,இன்னும் வழக்க நினைவூட்டல்கள் இல்லை.,,
+routine.editNamed,Edit {{name}},{{name}} ஐ மாற்று,,Keep {{name}} exactly (filled in by the app)
+routine.voiceNote,"Spoken in {{language}}, for example:","{{language}} இல் சொல்லும், எ.கா.:",,Keep {{language}} exactly (filled in by the app)
+routine.footer,"Routine reminders ring on their phone like medicine alarms, but calmer. Dates are estimates and not medical advice.","வழக்க நினைவூட்டல்கள் மருந்து அலாரம் போலவே அவர்களின் தொலைபேசியில் ஒலிக்கும், ஆனால் மென்மையாக. தேதிகள் மதிப்பீடுகள் மட்டுமே, மருத்துவ ஆலோசனை அல்ல.",,
+routine.addTitle,Add a routine reminder,வழக்க நினைவூட்டல் சேர்,,
+routine.editTitle,Edit routine reminder,வழக்க நினைவூட்டலை மாற்று,,
+routine.label,What it is (for the family),இது என்ன (குடும்பத்துக்காக),,
+routine.labelExample,Drink a glass of water,ஒரு டம்ளர் தண்ணீர் குடிப்பது,,
+routine.spoken,"What the voice says, in {{language}} (optional)","குரல் என்ன சொல்ல வேண்டும், {{language}} இல் (விருப்பம்)",,Keep {{language}} exactly (filled in by the app)
+routine.spokenHint,"If empty, the voice reads what it is.","காலியாக இருந்தால், மேலே எழுதியதைப் படிக்கும்.",,
+routine.exampleText,time to drink a glass of water,தண்ணீர் குடியுங்கள்,,
+routine.deleteConfirm,Delete “{{name}}”?,“{{name}}” ஐ நீக்கவா?,,Keep {{name}} exactly (filled in by the app)
+routine.delete,Delete this reminder,இந்த நினைவூட்டலை நீக்கு,,
+period.nextExpected,Next period expected,அடுத்த மாதவிடாய் மதிப்பீடு,,
+period.inDays_one,In {{count}} day,{{count}} நாளில்,,Keep {{count}} exactly (filled in by the app). Singular form (count = 1)
+period.inDays_other,In {{count}} days,{{count}} நாட்களில்,,Keep {{count}} exactly (filled in by the app). Plural form
+period.today,Today,இன்று,,
+period.daysAgo_one,{{count}} day ago,{{count}} நாள் முன்,,Keep {{count}} exactly (filled in by the app). Singular form (count = 1)
+period.daysAgo_other,{{count}} days ago,{{count}} நாட்கள் முன்,,Keep {{count}} exactly (filled in by the app). Plural form
+period.noDates,Record the first day of the last period to see the next expected date.,அடுத்த தேதியைக் காண கடைசி மாதவிடாயின் முதல் நாளைப் பதிவு செய்யுங்கள்.,,
+period.voiceBefore_one,"Voice, {{count}} day before:","குரல், {{count}} நாள் முன்:",,Keep {{count}} exactly (filled in by the app). Singular form (count = 1)
+period.voiceBefore_other,"Voice, {{count}} days before:","குரல், {{count}} நாட்கள் முன்:",,Keep {{count}} exactly (filled in by the app). Plural form
+period.startedToday,Period started today,இன்று மாதவிடாய் தொடங்கியது,,
+period.otherDate,Or record another day,அல்லது வேறு நாளைப் பதிவு செய்,,
+period.history_one,Recorded dates ({{count}}),பதிவான தேதிகள் ({{count}}),,Keep {{count}} exactly (filled in by the app). Singular form (count = 1)
+period.history_other,Recorded dates ({{count}}),பதிவான தேதிகள் ({{count}}),,Keep {{count}} exactly (filled in by the app). Plural form
+period.average_one,Average cycle: {{count}} day,சராசரி சுழற்சி: {{count}} நாள்,,Keep {{count}} exactly (filled in by the app). Singular form (count = 1)
+period.average_other,Average cycle: {{count}} days,சராசரி சுழற்சி: {{count}} நாட்கள்,,Keep {{count}} exactly (filled in by the app). Plural form
+period.remove,Remove,நீக்கு,,
+period.removeConfirm,Remove this date?,இந்தத் தேதியை நீக்கவா?,,
+period.settings,Settings,அமைப்புகள்,,
+period.cycleLength,Usual cycle length (days),வழக்கமான சுழற்சி (நாட்கள்),,
+period.periodLength,Period length (days),மாதவிடாய் நாட்கள்,,
+period.remindDays,Remind this many days before,இத்தனை நாட்கள் முன் நினைவூட்டு,,
+period.remindTime,Reminder time,நினைவூட்டல் நேரம்,,
+period.enabled,Period reminders on,மாதவிடாய் நினைவூட்டல்கள் இயக்கத்தில்,,
+period.disclaimer,Dates are estimates and not medical advice.,"தேதிகள் மதிப்பீடுகள் மட்டுமே, மருத்துவ ஆலோசனை அல்ல.",,
+period.todayLabel,today,இன்று,,
+period.expectedStart,expected start,தொடங்கும் மதிப்பீடு,,
+period.expectedDay,expected,மதிப்பீடு,,
+period.alarmTitle,Period expected soon,மாதவிடாய் தேதி நெருங்குகிறது,,
+backend:push.missed.title,{0} has not taken a medicine,{0} மருந்து எடுக்கவில்லை,,Keep {0} exactly (filled in by the app). Push alert to family members
+backend:push.missed.body,{1} at {2}. Open to call or play the reminder again.,{2} மணிக்கு {1}. அழைக்க அல்லது நினைவூட்டலை மீண்டும் ஒலிக்கத் திறக்கவும்.,,Keep {1} {2} exactly (filled in by the app). Push alert to family members

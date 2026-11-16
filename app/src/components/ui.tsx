@@ -5,7 +5,7 @@ import { useId } from 'react';
 export function Button({ className = '', ...props }: ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
     <button
-      className={`min-h-14 w-full rounded-2xl bg-teal px-5 text-lg font-semibold text-white hover:bg-teal-dark disabled:opacity-60 ${className}`}
+      className={`min-h-14 w-full rounded-2xl bg-teal px-5 text-lg font-semibold text-white hover:bg-teal-dark disabled:opacity-75 ${className}`}
       {...props}
     />
   );

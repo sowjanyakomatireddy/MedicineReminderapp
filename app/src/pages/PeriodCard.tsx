@@ -7,6 +7,7 @@ import { routineKeys, usePeriod, type Period, type PeriodSettings } from '../api
 import { findLocale } from '../i18n/locales';
 import { periodSentence } from '../voice/sentence';
 import { Alert } from '../components/ui';
+import { ErrorState } from '../components/layout';
 
 /** "2026-11-20" as a local date (no time-zone shift). */
 const parse = (iso: string) => {
@@ -45,7 +46,7 @@ export function PeriodCard({ person, canEdit }: { person: Person; canEdit: boole
     call(`/api/people/${person.id}/period/starts`, { method: 'POST', body: JSON.stringify(date ? { date } : {}) });
 
   if (period.isPending) return null;
-  if (period.isError || !period.data) return <Alert>{t('errors.loadFailed')}</Alert>;
+  if (period.isError || !period.data) return <ErrorState onRetry={() => period.refetch()} />;
   const p = period.data;
   const locale = i18n.resolvedLanguage;
   const fmt = (d: string, opts: Intl.DateTimeFormatOptions) => parse(d).toLocaleDateString(locale, opts);

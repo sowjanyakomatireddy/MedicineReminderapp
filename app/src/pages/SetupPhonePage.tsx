@@ -6,7 +6,7 @@ import { api, errorKey } from '../api/client';
 import { createCode, keys, useDevices, useFamily, usePerson, type PairingCode } from '../api/family';
 import { Alert, Button } from '../components/ui';
 import { CodeCard } from '../components/CodeCard';
-import { BackLink, FamilyPage, Loading, SectionHeading } from '../components/layout';
+import { BackLink, ErrorState, FamilyPage, Loading, SectionHeading } from '../components/layout';
 
 const STEPS = [1, 2, 3, 4, 5] as const;
 type Step = (typeof STEPS)[number];
@@ -49,7 +49,7 @@ export function SetupPhonePage() {
     return (
       <FamilyPage>
         <BackLink to="/family">{t('nav.family')}</BackLink>
-        <Alert>{t('errors.loadFailed')}</Alert>
+        <ErrorState onRetry={() => person.refetch()} />
       </FamilyPage>
     );
   }

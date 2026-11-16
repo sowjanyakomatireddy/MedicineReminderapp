@@ -8,3 +8,6 @@ uploads/
 app/android/app/google-services.json
 *firebase-adminsdk*.json
 firebase-service-account*.json
+
+# Release APKs
+dist-apk/

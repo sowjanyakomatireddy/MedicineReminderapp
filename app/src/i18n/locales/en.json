@@ -40,7 +40,10 @@
     "alreadyInFamily": "You are already in a family.",
     "lastEditor": "The family needs at least one editor. Make someone else an editor first.",
     "loadFailed": "Could not load. Check your internet and try again.",
-    "checkFields": "Some fields need fixing."
+    "checkFields": "Some fields need fixing.",
+    "offline": "You are offline. Changes will not be saved until the internet is back. His alarms still ring.",
+    "crashed": "Something went wrong on this screen.",
+    "reload": "Reload"
   },
   "nav": {
     "label": "Main",

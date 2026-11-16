@@ -14,18 +14,16 @@ import { PersonChips } from '../components/PersonChips';
 import { formatTime } from '../components/format';
 import { LanguageSwitcher } from '../components/LanguageSwitcher';
 import { Alert, Button, TextField } from '../components/ui';
-import { FamilyPage, Loading } from '../components/layout';
+import { ErrorState, FamilyPage, Loading } from '../components/layout';
 
 export function FamilyHomePage() {
-  const { t } = useTranslation();
   const family = useFamily();
 
   if (family.isPending) return <Loading />;
   if (family.isError) {
     return (
       <FamilyPage nav={false}>
-        <Alert>{t('errors.loadFailed')}</Alert>
-        <Button onClick={() => family.refetch()}>{t('common.retry')}</Button>
+        <ErrorState onRetry={() => family.refetch()} />
       </FamilyPage>
     );
   }
@@ -86,7 +84,9 @@ function Home({ family }: { family: Family }) {
           )}
         </div>
       )}
-      {(people.isError || today.isError) && <Alert>{t('errors.loadFailed')}</Alert>}
+      {(people.isError || today.isError) && (
+        <ErrorState onRetry={() => { void people.refetch(); void today.refetch(); }} />
+      )}
       {personId && today.isPending && <Loading />}
 
       {day && (

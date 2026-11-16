@@ -87,14 +87,14 @@ export function ElderPairPage() {
   return (
     <main lang={lang} className="mx-auto flex min-h-dvh max-w-md flex-col gap-6 px-5 py-8 text-[20px]">
       <div className="flex items-center justify-end gap-2">
-        <label htmlFor={langId} className="text-base text-muted">
+        <label htmlFor={langId} className="text-[20px] text-muted">
           {t('common.language')}
         </label>
         <select
           id={langId}
           value={lang}
           onChange={(e) => setLang(e.target.value)}
-          className="min-h-14 rounded-xl border-2 border-muted/40 bg-white px-3 text-lg"
+          className="min-h-14 rounded-xl border-2 border-muted/40 bg-white px-3 text-[20px]"
         >
           {LOCALES.map((l) => (
             <option key={l.code} value={l.code} lang={l.code}>
@@ -126,7 +126,7 @@ export function ElderPairPage() {
           <button
             type="submit"
             disabled={busy || code.replace(/[^A-Za-z0-9]/g, '').length < 8}
-            className="min-h-[76px] rounded-[22px] bg-teal text-[28px] font-bold text-white disabled:opacity-60"
+            className="min-h-[76px] rounded-[22px] bg-teal text-[28px] font-bold text-white disabled:opacity-75"
           >
             {t('elder.next')}
           </button>
@@ -145,10 +145,10 @@ export function ElderPairPage() {
                   type="button"
                   disabled={busy}
                   onClick={() => choose(p.id)}
-                  className="flex min-h-[76px] w-full flex-col items-start justify-center rounded-[22px] border-2 border-teal bg-white px-5 py-3 text-left disabled:opacity-60"
+                  className="flex min-h-[76px] w-full flex-col items-start justify-center rounded-[22px] border-2 border-teal bg-white px-5 py-3 text-left disabled:opacity-75"
                 >
                   <span className="text-[28px] font-bold">{p.name}</span>
-                  <span className="text-lg text-muted" lang={p.voiceLanguage}>
+                  <span className="text-[20px] text-muted" lang={p.voiceLanguage}>
                     {findLocale(p.voiceLanguage)?.nativeName ?? p.voiceLanguage}
                   </span>
                 </button>

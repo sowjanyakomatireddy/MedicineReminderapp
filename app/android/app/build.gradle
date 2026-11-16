@@ -8,7 +8,7 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
@@ -16,8 +16,30 @@ android {
             ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
     }
+    // Release signing: the key is kept OUTSIDE the project (never committed).
+    // scripts/create-release-key.sh makes it; the path can be changed with MR_KEYSTORE_PROPERTIES.
+    def keyProps = new Properties()
+    def keyPropsFile = file(System.getenv("MR_KEYSTORE_PROPERTIES")
+            ?: "${System.getProperty('user.home')}/.medicine-reminder/keystore.properties")
+    if (keyPropsFile.exists()) {
+        keyPropsFile.withInputStream { keyProps.load(it) }
+    }
+    signingConfigs {
+        release {
+            if (keyPropsFile.exists()) {
+                storeFile file(keyProps['storeFile'])
+                storePassword keyProps['storePassword']
+                keyAlias keyProps['keyAlias']
+                keyPassword keyProps['keyPassword']
+            }
+        }
+    }
     buildTypes {
         release {
+            if (keyPropsFile.exists()) {
+                signingConfig signingConfigs.release
+            }
+            // Not shrunk: Capacitor finds plugins by reflection, and the APK is installed directly.
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

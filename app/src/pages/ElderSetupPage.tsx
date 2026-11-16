@@ -75,7 +75,7 @@ function Setup({ person }: { person: PairedPerson }) {
             action={{ text: t('elderSetup.fix'), run: open('battery') }}>
             {status.autostartPage && (
               <>
-                <p className="text-base text-muted">{t('elderSetup.autostartHint', { maker: status.manufacturer })}</p>
+                <p className="text-[20px] text-muted">{t('elderSetup.autostartHint', { maker: status.manufacturer })}</p>
                 <SmallButton onClick={open('autostart')}>{t('elderSetup.autostart')}</SmallButton>
               </>
             )}
@@ -84,9 +84,9 @@ function Setup({ person }: { person: PairedPerson }) {
             action={voice === 'missingData' || voice === 'notSupported'
               ? { text: t('elderSetup.installVoice'), run: () => void MedAlarm.installVoice() }
               : undefined}>
-            {voice === 'noEngine' && <p className="text-base text-danger">{t('elderSetup.noEngine')}</p>}
+            {voice === 'noEngine' && <p className="text-[20px] text-danger">{t('elderSetup.noEngine')}</p>}
             {(voice === 'missingData' || voice === 'notSupported') && (
-              <p className="text-base text-muted">{t('elderSetup.voiceMissing', { language: languageName })}</p>
+              <p className="text-[20px] text-muted">{t('elderSetup.voiceMissing', { language: languageName })}</p>
             )}
           </Row>
         </ol>
@@ -98,7 +98,7 @@ function Setup({ person }: { person: PairedPerson }) {
             className="min-h-[76px] rounded-[22px] bg-teal text-[24px] font-bold text-white">
             {t('elderSetup.testAlarm')}
           </button>
-          <p role="status" className={testSet ? 'font-semibold text-teal-dark' : 'text-base text-muted'}>
+          <p role="status" className={testSet ? 'text-[20px] font-semibold text-teal-dark' : 'text-[20px] text-muted'}>
             {testSet ? t('elderSetup.testScheduled') : t('elderSetup.testHint')}
           </p>
         </div>
@@ -108,7 +108,7 @@ function Setup({ person }: { person: PairedPerson }) {
         {t('elderSetup.done')}
       </Link>
       {native && (
-        <Link to="/elder/debug" className="self-center py-3 text-base text-muted underline">
+        <Link to="/elder/debug" className="flex min-h-14 items-center self-center px-4 text-[20px] text-muted underline">
           {t('elderSetup.details')}
         </Link>
       )}
@@ -132,12 +132,12 @@ function Row({ ok, label, action, children, t }: {
         </span>
         <span className="flex flex-1 flex-col">
           <span className="font-bold">{label}</span>
-          <span className="text-base">{ok ? t('elderSetup.ok') : t('elderSetup.notOk')}</span>
+          <span className="text-[20px]">{ok ? t('elderSetup.ok') : t('elderSetup.notOk')}</span>
         </span>
       </div>
       {!ok && action && (
         <button type="button" onClick={action.run}
-          className="min-h-14 rounded-xl bg-teal-dark text-lg font-semibold text-white">
+          className="min-h-14 rounded-xl bg-teal-dark text-[20px] font-semibold text-white">
           {action.text}
         </button>
       )}
@@ -149,7 +149,7 @@ function Row({ ok, label, action, children, t }: {
 function SmallButton({ onClick, children }: { onClick: () => void; children: ReactNode }) {
   return (
     <button type="button" onClick={onClick}
-      className="min-h-14 rounded-xl border-2 border-teal-dark text-lg font-semibold text-teal-dark">
+      className="min-h-14 rounded-xl border-2 border-teal-dark text-[20px] font-semibold text-teal-dark">
       {children}
     </button>
   );

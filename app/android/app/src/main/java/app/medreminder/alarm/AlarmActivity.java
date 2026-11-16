@@ -48,6 +48,9 @@ public class AlarmActivity extends AppCompatActivity {
         COLOURS.put("MIXED", 0xFFC8364B);
     }
 
+    /** The dose whose alarm screen is on top right now (null if none), so a repeat doesn't add a banner over it. */
+    static volatile String visibleKey;
+
     private final Handler handler = new Handler(Looper.getMainLooper());
     private JSONObject alarm;
     private String key;
@@ -73,6 +76,18 @@ public class AlarmActivity extends AppCompatActivity {
         super.onNewIntent(intent);
         setIntent(intent);
         show(intent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        visibleKey = key;
+    }
+
+    @Override
+    protected void onPause() {
+        visibleKey = null;
+        super.onPause();
     }
 
     @Override

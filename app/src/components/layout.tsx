@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { Component, useEffect, useState, type ErrorInfo, type ReactNode } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
@@ -7,6 +7,7 @@ export function FamilyPage({ children, nav = true }: { children: ReactNode; nav?
   return (
     <>
       <main className={`mx-auto flex min-h-dvh max-w-md flex-col gap-4 px-4 pt-6 ${nav ? 'pb-28' : 'pb-8'}`}>
+        <OfflineBanner />
         {children}
       </main>
       {nav && <BottomNav />}
@@ -119,4 +120,68 @@ export function Loading() {
       {t('common.loading')}
     </p>
   );
+}
+
+/** "Could not load" with a Try again button. */
+export function ErrorState({ onRetry }: { onRetry?: () => void }) {
+  const { t } = useTranslation();
+  return (
+    <div role="alert" className="flex flex-col gap-3 rounded-xl border-2 border-danger bg-white p-4">
+      <p className="font-medium text-danger">{t('errors.loadFailed')}</p>
+      {onRetry && (
+        <button type="button" onClick={onRetry} className="min-h-12 rounded-xl border-2 border-teal font-semibold text-teal">
+          {t('common.retry')}
+        </button>
+      )}
+    </div>
+  );
+}
+
+/** Shown while the browser is offline: changes cannot be saved until it is back. */
+export function OfflineBanner() {
+  const { t } = useTranslation();
+  const [online, setOnline] = useState(() => typeof navigator === 'undefined' || navigator.onLine);
+  useEffect(() => {
+    const up = () => setOnline(true);
+    const down = () => setOnline(false);
+    window.addEventListener('online', up);
+    window.addEventListener('offline', down);
+    return () => {
+      window.removeEventListener('online', up);
+      window.removeEventListener('offline', down);
+    };
+  }, []);
+  if (online) return null;
+  return (
+    <p role="status" className="rounded-xl bg-ink px-4 py-3 text-sm font-semibold text-white">
+      {t('errors.offline')}
+    </p>
+  );
+}
+
+/** If a screen crashes, show a calm message and a reload button instead of a blank page. */
+export class CrashScreen extends Component<{ children: ReactNode; message: string; action: string }, { failed: boolean }> {
+  state = { failed: false };
+
+  static getDerivedStateFromError() {
+    return { failed: true };
+  }
+
+  componentDidCatch(error: Error, info: ErrorInfo) {
+    // No health data is sent anywhere; this only shows in the browser's developer console.
+    console.error('Screen crashed', error.name, info.componentStack?.split('\n')[1]?.trim());
+  }
+
+  render() {
+    if (!this.state.failed) return this.props.children;
+    return (
+      <main className="mx-auto flex min-h-dvh max-w-md flex-col justify-center gap-4 px-6">
+        <p role="alert" className="text-xl font-semibold">{this.props.message}</p>
+        <button type="button" onClick={() => window.location.reload()}
+          className="min-h-14 rounded-2xl bg-teal text-lg font-semibold text-white">
+          {this.props.action}
+        </button>
+      </main>
+    );
+  }
 }

@@ -2,10 +2,9 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useFamily, usePeople } from '../api/family';
 import { useMedicines, type Medicine, type Schedule } from '../api/medicines';
-import { Alert } from '../components/ui';
 import { PillIcon } from '../components/PillIcon';
 import { PersonChips } from '../components/PersonChips';
-import { Chip, FamilyPage, Loading } from '../components/layout';
+import { Chip, ErrorState, FamilyPage, Loading } from '../components/layout';
 import { dayName, formatTime } from '../components/format';
 
 /** The Medicines tab: every medicine for one person, with its times. */
@@ -19,7 +18,7 @@ export function MedicinesPage() {
   const isEditor = family.data?.myRole === 'EDITOR';
 
   if (people.isPending || family.isPending) return <Loading />;
-  if (people.isError) return <FamilyPage><Alert>{t('errors.loadFailed')}</Alert></FamilyPage>;
+  if (people.isError) return <FamilyPage><ErrorState onRetry={() => people.refetch()} /></FamilyPage>;
   const person = people.data.find((p) => p.id === personId);
 
   return (
@@ -29,7 +28,7 @@ export function MedicinesPage() {
         onSelect={(id) => setParams({ person: id }, { replace: true })} />
       {!person && <p className="rounded-2xl bg-white p-4">{t('home.noPeople')}</p>}
       {person && medicines.isPending && <Loading />}
-      {medicines.isError && <Alert>{t('errors.loadFailed')}</Alert>}
+      {medicines.isError && <ErrorState onRetry={() => medicines.refetch()} />}
       {person && medicines.data?.length === 0 && (
         <p className="rounded-[18px] bg-white p-4 text-muted">{t('home.noMedicines', { name: person.name })}</p>
       )}
