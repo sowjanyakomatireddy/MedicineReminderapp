@@ -62,6 +62,14 @@ The phone and the Mac must be on the same Wi-Fi for pairing. Alarms themselves n
 | T | (Firebase only) On the Missed alert tap **Play the reminder again**. | His phone rings that medicine at once. |
 | U | Press **Call family** on his Today screen. | The phone dialler opens with the family number. |
 
+### Phase 6: routine and period reminders
+
+| # | Do this | Expected |
+|---|---|---|
+| V | In the family app *Routine*, add "Drink a glass of water" (voice: "నీళ్ళు తాగండి") for 3 minutes from now. Open the app on the phone. | It rings softly (no siren, no vibration), shows "నీళ్ళు తాగండి" with **సరే**, no tablet picture, and says "అమ్మ, నీళ్ళు తాగండి." |
+| W | Tap **సరే**. | It closes. Nothing appears as taken or missed in the family app. |
+| X | Turn on *Period date reminders* for her, record a start date 26 days ago, and set the reminder time to 3 minutes from now. Open the app on the phone. | The Routine screen shows "In 2 days"; the phone speaks "అమ్మ, పీరియడ్స్ తేదీ దగ్గరలో ఉంది." at that time. |
+
 Before handing the phone over: open the debug screen and tap **Cancel all alarms on this phone** to remove the
 sample alarm (real medicines arrive in the next phase).
 
@@ -92,6 +100,9 @@ Phone make and model: ____________ Android version: ______
 | S | | |
 | T | | |
 | U | | |
+| V | | |
+| W | | |
+| X | | |
 
 ## Already checked on the Android emulator (Pixel 8, Android 17)
 

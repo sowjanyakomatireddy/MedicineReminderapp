@@ -14,7 +14,8 @@
     "share": "भेजें",
     "back": "वापस",
     "changePhoto": "फ़ोटो बदलें",
-    "removePhoto": "फ़ोटो हटाएं"
+    "removePhoto": "फ़ोटो हटाएं",
+    "cancel": "रद्द करें"
   },
   "auth": {
     "loginTitle": "लॉग इन",
@@ -46,7 +47,8 @@
     "label": "मुख्य मेनू",
     "home": "होम",
     "family": "परिवार",
-    "medicines": "दवाइयाँ"
+    "medicines": "दवाइयाँ",
+    "routine": "दिनचर्या"
   },
   "home": {
     "welcome": "नमस्ते, {{name}}",
@@ -102,7 +104,8 @@
     "inviteHelp": "वे इस ऐप में खाता बनाएं, “परिवार से जुड़ें” चुनें, और यह कोड लिखें।",
     "note": "परिवार के लोग कोड से जुड़ते हैं। उन्हें अपने फ़ोन पर अलर्ट मिलते हैं। सिर्फ़ जिन्हें आप अनुमति दें, वही दवाइयाँ बदल सकते हैं।",
     "medicines_one": "{{count}} दवा",
-    "medicines_other": "{{count}} दवाइयाँ"
+    "medicines_other": "{{count}} दवाइयाँ",
+    "periodDates": "पीरियड की तारीखें"
   },
   "person": {
     "addTitle": "याद दिलाने के लिए व्यक्ति जोड़ें",
@@ -119,7 +122,9 @@
     "phone": "उनका फ़ोन नंबर (वैकल्पिक)",
     "phoneHint": "दवा छूटने पर कॉल बटन के लिए।",
     "familyPhone": "उनका फ़ोन जिस परिवार नंबर पर कॉल करे (वैकल्पिक)",
-    "familyPhoneHint": "उनके फ़ोन पर “परिवार को कॉल करें” के रूप में दिखेगा।"
+    "familyPhoneHint": "उनके फ़ोन पर “परिवार को कॉल करें” के रूप में दिखेगा।",
+    "periodTracking": "पीरियड की तारीख के रिमाइंडर",
+    "periodTrackingHint": "अगली तारीख का अनुमान लगाकर कुछ दिन पहले आवाज़ से याद दिलाता है। डॉक्टरी सलाह नहीं।"
   },
   "setup": {
     "title": "{{name}} का फ़ोन सेट करें",
@@ -252,7 +257,9 @@
     "sentence": "{{person}}, यह {{voiceName}} है। {{foodPhrase}}।",
     "foodBEFORE": "खाने से पहले लें",
     "foodAFTER": "खाने के बाद लें",
-    "foodANY": "अभी लें"
+    "foodANY": "अभी लें",
+    "routineSentence": "{{person}}, {{text}}।",
+    "periodSentence": "{{person}}, पीरियड्स की तारीख पास है।"
   },
   "alarm": {
     "medicineTime": "दवा का समय",
@@ -328,5 +335,53 @@
     "enable": "अलर्ट चालू करें",
     "iosHint": "iPhone पर: Share दबाएं, फिर “Add to Home Screen”। होम स्क्रीन से ऐप खोलें और वहाँ अलर्ट चालू करें।",
     "blocked": "इस साइट के अलर्ट बंद हैं। ब्राउज़र सेटिंग में नोटिफ़िकेशन की अनुमति दें।"
+  },
+  "routine": {
+    "title": "रोज़ की दिनचर्या",
+    "personDay": "{{name}} का दिन",
+    "add": "+ जोड़ें",
+    "empty": "अभी कोई दिनचर्या रिमाइंडर नहीं।",
+    "editNamed": "{{name}} बदलें",
+    "voiceNote": "{{language}} में बोला जाएगा, जैसे:",
+    "footer": "दिनचर्या रिमाइंडर उनके फ़ोन पर दवा के अलार्म की तरह बजते हैं, पर धीरे। तारीखें अनुमान हैं, डॉक्टरी सलाह नहीं।",
+    "addTitle": "दिनचर्या रिमाइंडर जोड़ें",
+    "editTitle": "दिनचर्या रिमाइंडर बदलें",
+    "label": "यह क्या है (परिवार के लिए)",
+    "labelExample": "एक गिलास पानी पीना",
+    "spoken": "आवाज़ क्या कहे, {{language}} में (वैकल्पिक)",
+    "spokenHint": "खाली हो तो ऊपर लिखा हुआ पढ़ा जाएगा।",
+    "exampleText": "पानी पी लीजिए",
+    "deleteConfirm": "“{{name}}” हटाएं?",
+    "delete": "यह रिमाइंडर हटाएं"
+  },
+  "period": {
+    "nextExpected": "अगले पीरियड का अनुमान",
+    "inDays_one": "{{count}} दिन में",
+    "inDays_other": "{{count}} दिन में",
+    "today": "आज",
+    "daysAgo_one": "{{count}} दिन पहले",
+    "daysAgo_other": "{{count}} दिन पहले",
+    "noDates": "अगली तारीख देखने के लिए पिछले पीरियड का पहला दिन दर्ज करें।",
+    "voiceBefore_one": "आवाज़, {{count}} दिन पहले:",
+    "voiceBefore_other": "आवाज़, {{count}} दिन पहले:",
+    "startedToday": "आज पीरियड शुरू हुआ",
+    "otherDate": "या कोई और दिन दर्ज करें",
+    "history_one": "दर्ज तारीखें ({{count}})",
+    "history_other": "दर्ज तारीखें ({{count}})",
+    "average_one": "औसत चक्र: {{count}} दिन",
+    "average_other": "औसत चक्र: {{count}} दिन",
+    "remove": "हटाएं",
+    "removeConfirm": "यह तारीख हटाएं?",
+    "settings": "सेटिंग",
+    "cycleLength": "सामान्य चक्र (दिन)",
+    "periodLength": "पीरियड के दिन",
+    "remindDays": "इतने दिन पहले याद दिलाएं",
+    "remindTime": "रिमाइंडर का समय",
+    "enabled": "पीरियड रिमाइंडर चालू",
+    "disclaimer": "तारीखें अनुमान हैं, डॉक्टरी सलाह नहीं।",
+    "todayLabel": "आज",
+    "expectedStart": "शुरू होने का अनुमान",
+    "expectedDay": "अनुमान",
+    "alarmTitle": "पीरियड्स की तारीख पास है"
   }
 }

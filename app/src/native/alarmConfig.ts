@@ -2,7 +2,7 @@ import i18n from '../i18n';
 import { findLocale } from '../i18n/locales';
 import type { Food } from '../api/medicines';
 import { COLOURS, FOODS, SHAPES } from '../api/medicines';
-import { spokenSentence } from '../voice/sentence';
+import { routineSentence, spokenSentence } from '../voice/sentence';
 import type { AlarmChip, AlarmConfig, AlarmProfile, AlarmTemplates, AlarmUi, NativeAlarm } from './medAlarm';
 
 export interface AlarmPerson {
@@ -52,6 +52,9 @@ export function alarmTemplates(lang: string): AlarmTemplates {
     food: map(FOODS, 'food.'),
     shape: map(SHAPES, 'shape.'),
     colour: map(COLOURS, 'colour.'),
+    routineSentence: raw(lang, 'voice.routineSentence'),
+    periodSentence: raw(lang, 'voice.periodSentence'),
+    periodTitle: t('period.alarmTitle'),
   };
 }
 
@@ -80,10 +83,17 @@ export function alarmConfig(person: AlarmPerson, alarms: NativeAlarm[]): AlarmCo
   return { timeZone: person.timeZone, lang: voiceLocale(person.voiceLanguage), ui: alarmUi(person.voiceLanguage), alarms };
 }
 
-/** The test alarm: a pretend tablet, spoken with the person's real sentence template. */
+/**
+ * The test alarm, spoken with the person's real sentence template: a pretend tablet, or for the calm
+ * (routine) test, an everyday reminder with no medicine words.
+ */
 export function testAlarm(person: AlarmPerson, kind: 'MEDICINE' | 'ROUTINE' = 'MEDICINE') {
   const lang = person.voiceLanguage;
   const t = i18n.getFixedT(lang);
+  if (kind === 'ROUTINE') {
+    const text = t('routine.exampleText');
+    return { kind, title: text, subtitle: t('elderSetup.testSubtitle'), chips: [], spoken: routineSentence(lang, person.name, text) };
+  }
   const name = t('elderSetup.testMedicine');
   return {
     kind,

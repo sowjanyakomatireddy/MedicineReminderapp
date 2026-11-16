@@ -34,3 +34,13 @@ export function speakPreview(lang: string, text: string) {
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(u);
 }
+
+/** A routine reminder as spoken: "అమ్మ, నీళ్ళు తాగండి." (the label if no spoken words are set). */
+export function routineSentence(lang: string, person: string, text: string): string {
+  return i18n.getFixedT(lang)('voice.routineSentence', { person, text });
+}
+
+/** The period reminder as spoken, N days before the expected date. */
+export function periodSentence(lang: string, person: string): string {
+  return i18n.getFixedT(lang)('voice.periodSentence', { person });
+}

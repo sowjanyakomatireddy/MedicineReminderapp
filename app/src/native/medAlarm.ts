@@ -78,6 +78,11 @@ export interface AlarmTemplates {
   food: Record<string, string>;
   shape: Record<string, string>;
   colour: Record<string, string>;
+  /** "{{person}}, {{text}}." for routine reminders. */
+  routineSentence: string;
+  /** "{{person}}, పీరియడ్స్ తేదీ దగ్గరలో ఉంది." */
+  periodSentence: string;
+  periodTitle: string;
 }
 
 export interface AlarmProfile {
@@ -93,6 +98,8 @@ export interface SyncData {
   familyName: string;
   medicines: import('../api/medicines').Medicine[];
   logs: { scheduleId: string; date: string; status: 'TAKEN' | 'MISSED' }[];
+  routine?: import('../api/routine').RoutineItem[];
+  period?: { date: string; time: string; expected: string } | null;
   serverTime: string;
   pushEnabled: boolean;
 }

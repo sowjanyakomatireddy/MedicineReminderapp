@@ -59,6 +59,7 @@ export function MembersPage() {
                     <span lang={p.voiceLanguage}>{lang?.nativeName ?? p.voiceLanguage}</span>
                   </Chip>
                   <Chip>{t('members.medicines', { count: p.medicineCount })}</Chip>
+                  {p.periodTracking && <Chip tone="pink">{t('members.periodDates')}</Chip>}
                   <Chip tone={p.linkedPhones > 0 ? 'green' : 'amber'}>
                     {p.linkedPhones > 0 ? t('members.phoneLinked') : t('members.noPhone')}
                   </Chip>

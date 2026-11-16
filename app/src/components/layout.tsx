@@ -47,8 +47,9 @@ export function Avatar({ name }: { name: string }) {
   );
 }
 
-export function Chip({ children, tone = 'grey' }: { children: ReactNode; tone?: 'grey' | 'amber' | 'green' }) {
+export function Chip({ children, tone = 'grey' }: { children: ReactNode; tone?: 'grey' | 'amber' | 'green' | 'pink' }) {
   const tones = {
+    pink: 'bg-[#FBE6EA] text-[#5A2431]',
     grey: 'bg-[#E8EEF0] text-ink',
     amber: 'bg-before-bg text-before-fg',
     green: 'bg-after-bg text-after-fg',
@@ -65,7 +66,7 @@ function Icon({ d }: { d: string }) {
   );
 }
 
-/** Bottom tabs from the prototype. Routine is added in Phase 6. */
+/** Bottom tabs from the prototype: Home, Medicines, Routine, Family. */
 export function BottomNav() {
   const { t } = useTranslation();
   const items = [
@@ -74,6 +75,12 @@ export function BottomNav() {
       to: '/medicines',
       label: t('nav.medicines'),
       d: 'M10.5 20.5 3.5 13.5a5 5 0 0 1 7-7l7 7a5 5 0 0 1-7 7zM8.5 8.5l7 7',
+      end: false,
+    },
+    {
+      to: '/routine',
+      label: t('nav.routine'),
+      d: 'M4 5h16v15H4zM4 10h16M9 3v4M15 3v4',
       end: false,
     },
     {

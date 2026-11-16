@@ -42,6 +42,7 @@ function PersonForm({ person, canEdit }: { person?: Person; canEdit: boolean }) 
     timeZone: person?.timeZone ?? DEFAULT_TZ,
     phone: person?.phone ?? '',
     familyPhone: person?.familyPhone ?? '',
+    periodTracking: person?.periodTracking ?? false,
   });
   const [photo, setPhoto] = useState<File | null>(null);
   const [removePhoto, setRemovePhoto] = useState(false);
@@ -180,6 +181,15 @@ function PersonForm({ person, canEdit }: { person?: Person; canEdit: boolean }) 
             maxLength={20}
             error={fieldErrors?.familyPhone}
           />
+
+          <label className="flex items-start gap-3 rounded-xl bg-white p-3">
+            <input type="checkbox" className="mt-1 size-5 flex-none accent-teal" checked={form.periodTracking}
+              onChange={(e) => setForm({ ...form, periodTracking: e.target.checked })} />
+            <span className="flex flex-col">
+              <span className="font-medium">{t('person.periodTracking')}</span>
+              <span className="text-sm text-muted">{t('person.periodTrackingHint')}</span>
+            </span>
+          </label>
 
           {error != null && !fieldErrors && <Alert>{t(errorKey(error))}</Alert>}
           {canEdit && (

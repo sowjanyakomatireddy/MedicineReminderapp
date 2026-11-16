@@ -86,4 +86,17 @@ public class AlarmSchedulerTest {
                 AlarmScheduler.occurrences(alarm("07:00", 1), IST, utc.getTimeInMillis());
         assertEquals("s1@2025-11-17", list.get(0).key);
     }
+
+    @Test
+    public void oneOffOnADateRingsOnlyThatDay() throws Exception {
+        JSONObject a = new JSONObject().put("id", "period").put("date", "2026-11-18").put("time", "09:00")
+                .put("remindBeforeMin", 0).put("repeatEveryMin", 5).put("stopAfterMin", 10);
+        List<AlarmScheduler.Occurrence> list = AlarmScheduler.occurrences(a, IST, monday(12, 0));
+        assertEquals(1, list.size());
+        assertEquals("period@2026-11-18", list.get(0).key);
+        Calendar c = Calendar.getInstance(IST);
+        c.clear();
+        c.set(2026, Calendar.NOVEMBER, 18, 9, 0, 0);
+        assertEquals(c.getTimeInMillis(), list.get(0).start);
+    }
 }

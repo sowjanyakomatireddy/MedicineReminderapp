@@ -104,12 +104,29 @@ public class AlarmActivity extends AppCompatActivity {
         text(R.id.subtitle, alarm.optString("subtitle"));
         text(R.id.voice_label, ui.optString("voiceSays", getString(R.string.voice_says)));
         text(R.id.spoken, "“" + alarm.optString("spoken", alarm.optString("title")) + "”");
-        showPicture();
-        showChips();
+        // Routine and period reminders are not medicines: no tablet picture or medicine chips, so they
+        // can't be mistaken for a dose.
+        findViewById(R.id.picture).setVisibility(routine ? View.GONE : View.VISIBLE);
+        if (routine) {
+            ((LinearLayout) findViewById(R.id.chips)).removeAllViews();
+            findViewById(R.id.chips).setVisibility(View.GONE);
+        } else {
+            showPicture();
+            showChips();
+        }
 
         Button taken = findViewById(R.id.btn_taken);
-        taken.setText("✓  " + ui.optString("taken", getString(R.string.taken)));
-        taken.setOnClickListener(v -> onTaken(ui));
+        if (routine) {
+            // A routine reminder just needs "OK"; there is nothing to record.
+            taken.setText(ui.optString("ok", getString(R.string.ok)));
+            taken.setOnClickListener(v -> {
+                AlarmReceiver.taken(this, alarm, key, doseAt);
+                finish();
+            });
+        } else {
+            taken.setText("✓  " + ui.optString("taken", getString(R.string.taken)));
+            taken.setOnClickListener(v -> onTaken(ui));
+        }
         Button listen = findViewById(R.id.btn_listen);
         listen.setText(ui.optString("listenAgain", getString(R.string.listen_again)));
         listen.setOnClickListener(v -> startService(new Intent(this, AlarmService.class)

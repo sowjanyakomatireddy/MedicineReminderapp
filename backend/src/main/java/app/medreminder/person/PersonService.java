@@ -58,6 +58,7 @@ public class PersonService {
         Person p = new Person(m.getFamilyId(), req.name().trim(), req.voiceLanguage(), zone(req.timeZone()));
         p.setPhone(blankToNull(req.phone()));
         p.setFamilyPhone(blankToNull(req.familyPhone()));
+        p.setPeriodTracking(Boolean.TRUE.equals(req.periodTracking()));
         return toResponse(people.save(p));
     }
 
@@ -69,6 +70,9 @@ public class PersonService {
         p.setTimeZone(zone(req.timeZone()));
         p.setPhone(blankToNull(req.phone()));
         p.setFamilyPhone(blankToNull(req.familyPhone()));
+        if (req.periodTracking() != null) {
+            p.setPeriodTracking(req.periodTracking());
+        }
         events.publishEvent(new ScheduleChanged(p.getId()));
         return toResponse(p);
     }
@@ -113,7 +117,8 @@ public class PersonService {
     public PersonResponse toResponse(Person p) {
         return new PersonResponse(p.getId(), p.getName(), p.getVoiceLanguage(), p.getTimeZone(),
                 devices.countByPersonIdAndRevokedAtIsNull(p.getId()), medicines.countByPersonId(p.getId()),
-                p.getPhotoKey() != null, PhotoService.version(p.getPhotoKey()), p.getPhone(), p.getFamilyPhone());
+                p.getPhotoKey() != null, PhotoService.version(p.getPhotoKey()), p.getPhone(), p.getFamilyPhone(),
+                p.isPeriodTracking());
     }
 
     private static String blankToNull(String s) {

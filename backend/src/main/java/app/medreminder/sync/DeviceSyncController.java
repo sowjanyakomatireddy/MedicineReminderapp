@@ -15,7 +15,10 @@ import app.medreminder.medicine.MedicineRepository;
 import app.medreminder.medicine.MedicineService;
 import app.medreminder.person.Person;
 import app.medreminder.person.PersonRepository;
+import app.medreminder.period.PeriodService;
 import app.medreminder.photo.PhotoService;
+import app.medreminder.routine.RoutineDtos.RoutineResponse;
+import app.medreminder.routine.RoutineService;
 import app.medreminder.push.Notifier;
 import app.medreminder.security.CurrentDevice;
 import jakarta.validation.Valid;
@@ -53,7 +56,8 @@ public class DeviceSyncController {
 
     /** Everything the phone needs to ring alarms with no internet. Medicines include paused times (active=false). */
     public record SyncResponse(PersonInfo person, String familyName, List<MedicineResponse> medicines,
-                               List<LogInfo> logs, Instant serverTime, boolean pushEnabled) {
+                               List<LogInfo> logs, List<RoutineResponse> routine,
+                               PeriodService.PhoneReminder period, Instant serverTime, boolean pushEnabled) {
     }
 
     private final DeviceRepository devices;
@@ -64,10 +68,14 @@ public class DeviceSyncController {
     private final DoseLogService doses;
     private final PhotoService photos;
     private final Notifier notifier;
+    private final RoutineService routine;
+    private final PeriodService period;
 
     public DeviceSyncController(DeviceRepository devices, PersonRepository people, MedicineRepository medicines,
                                 MedicineService medicineService, FamilyService families, DoseLogService doses,
-                                PhotoService photos, Notifier notifier) {
+                                PhotoService photos, Notifier notifier, RoutineService routine, PeriodService period) {
+        this.routine = routine;
+        this.period = period;
         this.devices = devices;
         this.people = people;
         this.medicines = medicines;
@@ -90,8 +98,8 @@ public class DeviceSyncController {
         List<MedicineResponse> meds = medicineService.forPersonInternal(p.getFamilyId(), p.getId());
         d.markSynced();
         return new SyncResponse(new PersonInfo(p.getId(), p.getName(), p.getVoiceLanguage(), p.getTimeZone(),
-                p.getFamilyPhone()), families.load(p.getFamilyId()).getName(), meds, logs, Instant.now(),
-                notifier.enabled());
+                p.getFamilyPhone()), families.load(p.getFamilyId()).getName(), meds, logs,
+                routine.forPerson(p.getId()), period.phoneReminder(p), Instant.now(), notifier.enabled());
     }
 
     /** The phone's Firebase token, so the server can wake it (SYNC, RING). */

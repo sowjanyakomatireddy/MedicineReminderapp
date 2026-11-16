@@ -36,6 +36,9 @@ describe('what the phone gets to build alarms by itself', () => {
     expect(p.ui.taken).toBe('వేసుకున్నాను');
     expect(p.ui.takenLine).toBe('{{name}} వేసుకున్నారు');
     expect(p.ui.takenTitle).toBe('చాలా బాగుంది!');
+    expect(p.templates.routineSentence).toBe('{{person}}, {{text}}.');
+    expect(p.templates.periodSentence).toBe('{{person}}, పీరియడ్స్ తేదీ దగ్గరలో ఉంది.');
+    expect(p.templates.periodTitle).toBe('పీరియడ్స్ తేదీ దగ్గరలో ఉంది');
   });
 });
 

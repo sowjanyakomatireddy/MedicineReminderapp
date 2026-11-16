@@ -55,7 +55,9 @@ public class AlarmReceiver extends BroadcastReceiver {
 
     private static void finish(Context ctx, JSONObject alarm, String key, long doseAt, String status) {
         String id = alarm.optString("id");
-        if (AlarmStore.markHandled(ctx, key, status) && !alarm.optBoolean("test")) {
+        // Routine and test alarms are never logged: only medicines are taken or missed.
+        boolean logged = !alarm.optBoolean("test") && !"ROUTINE".equals(alarm.optString("kind"));
+        if (AlarmStore.markHandled(ctx, key, status) && logged) {
             String date = AlarmScheduler.dateOf(key, doseAt, AlarmScheduler.zone(ctx));
             JSONObject log = AlarmStore.addLog(ctx, id, date, status);
             MedAlarmPlugin.emitDoseLogged(log);

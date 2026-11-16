@@ -65,7 +65,49 @@ final class AlarmBuilder {
                 alarms.put(a);
             }
         }
+        addRoutine(alarms, sync.optJSONArray("routine"), templates, personName);
+        addPeriod(alarms, sync.optJSONObject("period"), templates, personName);
         return alarms;
+    }
+
+    /** Calm reminders: ring at the time, once more 5 minutes later, then stop. Nothing is logged. */
+    private static void addRoutine(JSONArray alarms, JSONArray routine, JSONObject t, String person)
+            throws JSONException {
+        for (int i = 0; routine != null && i < routine.length(); i++) {
+            JSONObject r = routine.getJSONObject(i);
+            if (!r.optBoolean("active", true)) {
+                continue;
+            }
+            String label = r.optString("label");
+            String said = r.optString("spokenText", "");
+            String text = said.isEmpty() ? label : said;
+            alarms.put(calm(r.getString("id"))
+                    .put("time", r.getString("time"))
+                    .put("days", isoDays(r.optJSONArray("days")))
+                    .put("title", text)
+                    .put("subtitle", said.isEmpty() ? "" : label)
+                    .put("spoken", t.optString("routineSentence", "{{person}}, {{text}}.")
+                            .replace("{{person}}", person).replace("{{text}}", text)));
+        }
+    }
+
+    /** The spoken period reminder, N days before the expected date (one date only). */
+    private static void addPeriod(JSONArray alarms, JSONObject period, JSONObject t, String person)
+            throws JSONException {
+        if (period == null || !period.has("date")) {
+            return;
+        }
+        alarms.put(calm("period")
+                .put("date", period.getString("date"))
+                .put("time", period.optString("time", "09:00"))
+                .put("title", t.optString("periodTitle", ""))
+                .put("subtitle", "")
+                .put("spoken", t.optString("periodSentence", "{{person}}").replace("{{person}}", person)));
+    }
+
+    private static JSONObject calm(String id) throws JSONException {
+        return new JSONObject().put("id", id).put("kind", "ROUTINE")
+                .put("remindBeforeMin", 0).put("repeatEveryMin", 5).put("stopAfterMin", 10);
     }
 
     /** "{{person}}, ఇది {{voiceName}}. {{foodPhrase}}." with the blanks filled in. */

@@ -101,6 +101,16 @@ public final class AlarmScheduler {
         String[] hm = a.optString("time", "00:00").split(":");
         int hour = Integer.parseInt(hm[0]);
         int minute = Integer.parseInt(hm[1]);
+        if (a.has("date")) { // one-off on a calendar date, e.g. the period reminder
+            String[] ymd = a.optString("date").split("-");
+            Calendar c = Calendar.getInstance(tz);
+            c.clear();
+            c.set(Integer.parseInt(ymd[0]), Integer.parseInt(ymd[1]) - 1, Integer.parseInt(ymd[2]), hour, minute, 0);
+            long doseAt = c.getTimeInMillis();
+            String date = dateFmt.format(doseAt);
+            list.add(new Occurrence(id + "@" + date, date, doseAt, doseAt - before, doseAt + after));
+            return list;
+        }
         Set<Integer> days = new HashSet<>();
         JSONArray d = a.optJSONArray("days");
         for (int i = 0; d != null && i < d.length(); i++) {

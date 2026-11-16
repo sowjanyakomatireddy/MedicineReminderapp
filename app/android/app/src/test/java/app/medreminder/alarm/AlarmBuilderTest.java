@@ -60,4 +60,35 @@ public class AlarmBuilderTest {
         assertEquals(1, a.getJSONArray("chips").length());
         assertFalse(a.has("photoUri"));
     }
+
+    @Test
+    public void routineAndPeriodRingCalmlyInThePersonsLanguage() throws Exception {
+        JSONObject t = telugu()
+                .put("routineSentence", "{{person}}, {{text}}.")
+                .put("periodSentence", "{{person}}, పీరియడ్స్ తేదీ దగ్గరలో ఉంది.")
+                .put("periodTitle", "పీరియడ్స్ తేదీ దగ్గరలో ఉంది");
+        JSONObject water = new JSONObject().put("id", "r1").put("time", "06:30").put("label", "Drink water")
+                .put("spokenText", "నీళ్ళు తాగండి").put("days", new JSONArray().put("MONDAY")).put("active", true);
+        JSONObject walk = new JSONObject().put("id", "r2").put("time", "17:00").put("label", "Evening walk")
+                .put("days", new JSONArray().put("SUNDAY")).put("active", true);
+        JSONObject off = new JSONObject(walk.toString()).put("id", "r3").put("active", false);
+        JSONObject s = new JSONObject().put("person", new JSONObject().put("name", "అమ్మ"))
+                .put("medicines", new JSONArray())
+                .put("routine", new JSONArray().put(water).put(walk).put(off))
+                .put("period", new JSONObject().put("date", "2026-11-18").put("time", "09:00"));
+
+        JSONArray alarms = AlarmBuilder.build(s, t, Map.of());
+        assertEquals(3, alarms.length());
+        JSONObject a = alarms.getJSONObject(0);
+        assertEquals("ROUTINE", a.getString("kind"));
+        assertEquals("అమ్మ, నీళ్ళు తాగండి.", a.getString("spoken"));
+        assertEquals("Drink water", a.getString("subtitle"));
+        assertEquals(10, a.getInt("stopAfterMin"));
+        // No spoken text: the voice reads the label.
+        assertEquals("అమ్మ, Evening walk.", alarms.getJSONObject(1).getString("spoken"));
+        JSONObject p = alarms.getJSONObject(2);
+        assertEquals("period", p.getString("id"));
+        assertEquals("2026-11-18", p.getString("date"));
+        assertEquals("అమ్మ, పీరియడ్స్ తేదీ దగ్గరలో ఉంది.", p.getString("spoken"));
+    }
 }

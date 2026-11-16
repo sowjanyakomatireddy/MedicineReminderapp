@@ -19,7 +19,9 @@ public final class PersonDtos {
             @NotBlank @Pattern(regexp = "^[a-z]{2,3}$", message = "Use a language code like te, ta, hi, en") String voiceLanguage,
             @Size(max = 40) String timeZone,
             @Pattern(regexp = PHONE, message = "Use digits, spaces, + ( ) or -") String phone,
-            @Pattern(regexp = PHONE, message = "Use digits, spaces, + ( ) or -") String familyPhone) {
+            @Pattern(regexp = PHONE, message = "Use digits, spaces, + ( ) or -") String familyPhone,
+            /** Turn period reminders on or off; leave out to keep as is. */
+            Boolean periodTracking) {
     }
 
     /** Empty, or 6 to 20 of digits, spaces, + ( ) -. */
@@ -27,6 +29,6 @@ public final class PersonDtos {
 
     public record PersonResponse(UUID id, String name, String voiceLanguage, String timeZone, long linkedPhones,
                                  long medicineCount, boolean hasPhoto, String photoVersion, String phone,
-                                 String familyPhone) {
+                                 String familyPhone, boolean periodTracking) {
     }
 }

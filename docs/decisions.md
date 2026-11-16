@@ -142,3 +142,25 @@ Small decisions made during the build, so they can be revisited.
   the link; the Firebase web SDK is only loaded (as separate chunks) when someone taps "Turn on alerts".
 - **The family's "Ring a test alarm now" button** on Set up phone stays off: the debug screen on the phone does
   this, and with push the Missed alert's replay covers ringing from afar.
+
+## Phase 6
+
+- **Routine items** have a *label* for the family (any language) and optional *spoken words* in the person's
+  language. If the spoken words are empty, the voice reads the label: the form says so and shows a preview.
+- **Routine reminders ring "calmer"**: no siren or vibration, the sentence spoken twice, once more after 5 minutes,
+  then stop after 10. The button is **సరే** (OK), there is no tablet picture or medicine chips, and **nothing is
+  logged**: only medicines are taken or missed. (Found on the emulator: the first version showed a tablet picture on
+  routine and period reminders, which could be mistaken for a dose; fixed.)
+- **Period reminders are off by default**, turned on per person (person form or the Routine screen's settings).
+  - **Next expected date** = last recorded start + average cycle. The average is over the last 6 gaps between
+    recorded starts, ignoring gaps outside 15–60 days (likely a missed or mistyped date); until there are two dates,
+    the "usual cycle length" setting (default 28) is used. If a start was not recorded, the estimate moves on by
+    whole cycles once the expected days have passed.
+  - **Spoken reminder** N days before (default 2) at a set time (default 9:00), as a one-off alarm on that date.
+  - **Any family member can record "Period started today"** (or another date) and remove a date; **only editors
+    change the settings**. The dates are visible to everyone in the family group.
+  - "Dates are estimates and not medical advice." is shown on the card and the screen.
+- **API**: `/api/people/{id}/routine` (list, add), `/api/routine/{id}` (change, delete);
+  `/api/people/{id}/period` (read, settings), `/period/starts` (record), `/period/starts/{date}` (remove).
+  The phone's sync now also carries `routine` and the next `period` reminder.
+- **The elder's Today screen still lists medicines only**, as in the prototype; routine reminders just ring.

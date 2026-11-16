@@ -334,7 +334,8 @@ public class AlarmService extends Service implements TextToSpeech.OnInitListener
                 .setAutoCancel(false)
                 .setFullScreenIntent(full, true)
                 .setContentIntent(full)
-                .addAction(0, ui.optString("taken", ctx.getString(R.string.taken)), taken)
+                .addAction(0, routine ? ui.optString("ok", ctx.getString(R.string.ok))
+                        : ui.optString("taken", ctx.getString(R.string.taken)), taken)
                 .build();
     }
 }

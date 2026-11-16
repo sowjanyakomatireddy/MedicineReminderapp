@@ -13,7 +13,8 @@
     "share": "Share",
     "back": "Back",
     "changePhoto": "Change photo",
-    "removePhoto": "Remove photo"
+    "removePhoto": "Remove photo",
+    "cancel": "Cancel"
   },
   "auth": {
     "loginTitle": "Log in",
@@ -45,7 +46,8 @@
     "label": "Main",
     "home": "Home",
     "family": "Family",
-    "medicines": "Medicines"
+    "medicines": "Medicines",
+    "routine": "Routine"
   },
   "home": {
     "welcome": "Hello, {{name}}",
@@ -101,7 +103,8 @@
     "inviteHelp": "They create an account in this app, choose “Join a family”, and type this code.",
     "note": "Family members join with a code. They get alerts on their own phone. Only people you allow can change medicines.",
     "medicines_one": "{{count}} medicine",
-    "medicines_other": "{{count}} medicines"
+    "medicines_other": "{{count}} medicines",
+    "periodDates": "Period dates"
   },
   "person": {
     "addTitle": "Add a person to remind",
@@ -118,7 +121,9 @@
     "phone": "Their phone number (optional)",
     "phoneHint": "For the Call button when a dose is missed.",
     "familyPhone": "Family number their phone calls (optional)",
-    "familyPhoneHint": "Shown as “Call family” on their phone."
+    "familyPhoneHint": "Shown as “Call family” on their phone.",
+    "periodTracking": "Period date reminders",
+    "periodTrackingHint": "Estimate the next date and remind her by voice a few days before. Not medical advice."
   },
   "setup": {
     "title": "Set up {{name}}’s phone",
@@ -251,7 +256,9 @@
     "sentence": "{{person}}, this is your {{voiceName}}. {{foodPhrase}}.",
     "foodBEFORE": "Take it before food",
     "foodAFTER": "Take it after food",
-    "foodANY": "Take it now"
+    "foodANY": "Take it now",
+    "routineSentence": "{{person}}, {{text}}.",
+    "periodSentence": "{{person}}, your period is expected in a few days."
   },
   "alarm": {
     "medicineTime": "MEDICINE TIME",
@@ -327,5 +334,53 @@
     "enable": "Turn on alerts",
     "iosHint": "On iPhone: tap Share, then “Add to Home Screen”. Open the app from the Home Screen and turn on alerts there.",
     "blocked": "Alerts are blocked for this site. Allow notifications in the browser settings."
+  },
+  "routine": {
+    "title": "Daily routine",
+    "personDay": "{{name}}’s day",
+    "add": "+ Add",
+    "empty": "No routine reminders yet.",
+    "editNamed": "Edit {{name}}",
+    "voiceNote": "Spoken in {{language}}, for example:",
+    "footer": "Routine reminders ring on their phone like medicine alarms, but calmer. Dates are estimates and not medical advice.",
+    "addTitle": "Add a routine reminder",
+    "editTitle": "Edit routine reminder",
+    "label": "What it is (for the family)",
+    "labelExample": "Drink a glass of water",
+    "spoken": "What the voice says, in {{language}} (optional)",
+    "spokenHint": "If empty, the voice reads what it is.",
+    "exampleText": "time to drink a glass of water",
+    "deleteConfirm": "Delete “{{name}}”?",
+    "delete": "Delete this reminder"
+  },
+  "period": {
+    "nextExpected": "Next period expected",
+    "inDays_one": "In {{count}} day",
+    "inDays_other": "In {{count}} days",
+    "today": "Today",
+    "daysAgo_one": "{{count}} day ago",
+    "daysAgo_other": "{{count}} days ago",
+    "noDates": "Record the first day of the last period to see the next expected date.",
+    "voiceBefore_one": "Voice, {{count}} day before:",
+    "voiceBefore_other": "Voice, {{count}} days before:",
+    "startedToday": "Period started today",
+    "otherDate": "Or record another day",
+    "history_one": "Recorded dates ({{count}})",
+    "history_other": "Recorded dates ({{count}})",
+    "average_one": "Average cycle: {{count}} day",
+    "average_other": "Average cycle: {{count}} days",
+    "remove": "Remove",
+    "removeConfirm": "Remove this date?",
+    "settings": "Settings",
+    "cycleLength": "Usual cycle length (days)",
+    "periodLength": "Period length (days)",
+    "remindDays": "Remind this many days before",
+    "remindTime": "Reminder time",
+    "enabled": "Period reminders on",
+    "disclaimer": "Dates are estimates and not medical advice.",
+    "todayLabel": "today",
+    "expectedStart": "expected start",
+    "expectedDay": "expected",
+    "alarmTitle": "Period expected soon"
   }
 }

@@ -10,6 +10,7 @@ import { PersonFormPage } from './pages/PersonFormPage';
 import { SetupPhonePage } from './pages/SetupPhonePage';
 import { MedicinesPage } from './pages/MedicinesPage';
 import { MissedAlertPage } from './pages/MissedAlertPage';
+import { RoutinePage } from './pages/RoutinePage';
 import { MedicineFormPage } from './pages/MedicineFormPage';
 import { ElderPairPage } from './pages/ElderPairPage';
 import { ElderTodayPage } from './pages/ElderTodayPage';
@@ -54,6 +55,7 @@ export default function App() {
       <Route path="/medicines/new" element={family(<MedicineFormPage />)} />
       <Route path="/medicines/:id" element={family(<MedicineFormPage />)} />
       <Route path="/missed/:id" element={family(<MissedAlertPage />)} />
+      <Route path="/routine" element={family(<RoutinePage />)} />
       <Route path="/family" element={family(<MembersPage />)} />
       <Route path="/family/people/new" element={family(<PersonFormPage />)} />
       <Route path="/family/people/:id" element={family(<PersonFormPage />)} />

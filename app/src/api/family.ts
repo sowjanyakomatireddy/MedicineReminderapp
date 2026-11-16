@@ -31,6 +31,7 @@ export interface Person {
   photoVersion?: string;
   phone?: string;
   familyPhone?: string;
+  periodTracking: boolean;
 }
 
 export interface PersonInput {
@@ -39,6 +40,7 @@ export interface PersonInput {
   timeZone: string;
   phone?: string;
   familyPhone?: string;
+  periodTracking?: boolean;
 }
 
 export interface Device {

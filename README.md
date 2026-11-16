@@ -107,5 +107,5 @@ The code keeps push notifications platform-neutral, so an iPhone can still recei
 - [x] Phase 3: Medicines and schedules (medicines with times, food rule and alarm settings, photos, voice preview, Family Home with today's status)
 - [x] Phase 4: Android alarm plugin (exact full-screen alarm over the lock screen, Telugu/Tamil/Hindi/English voice, repeat and auto-stop, restart-safe, offline, phone setup checklist, test alarm; real-phone test guide)
 - [x] Phase 5: Sync and dose logs (phone syncs on push, start, restart and daily; offline Taken/Missed queue; Taken and Today screens; missed-dose job and family alerts; Missed alert screen with call, replay and mark as taken)
-- [ ] Phase 6: Routine and period reminders
+- [x] Phase 6: Routine and period reminders (calm spoken routine reminders per person; optional period dates with estimate, 7-day strip and a spoken reminder N days before)
 - [ ] Phase 7: Polish and release APK

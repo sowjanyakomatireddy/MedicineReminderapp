@@ -113,7 +113,7 @@ export function ElderDebugPage() {
       <section className="flex flex-col gap-1 rounded-2xl bg-white p-3">
         <h2 className="font-bold">Waiting to upload ({logs.length})</h2>
         {logs.map((l) => <p key={l.id}>{l.status} · {l.date} · {l.scheduleId} · {fmt(l.at)}</p>)}
-        <p className="text-sm text-muted">Test alarms are never logged. Uploading starts in the next phase.</p>
+        <p className="text-sm text-muted">Test and routine alarms are never logged. Medicine logs upload automatically when the phone is online.</p>
       </section>
 
       {status && (
