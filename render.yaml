@@ -5,6 +5,7 @@ services:
   - type: web
     name: medicine-reminder-api
     runtime: docker
+    region: singapore   # next to the Neon database (AWS Singapore)
     plan: free
     rootDir: backend
     dockerfilePath: ./Dockerfile
