@@ -3,8 +3,8 @@ package app.medreminder.photo;
 import java.util.Optional;
 
 /**
- * Where photos live. Local disk in development (LocalDiskPhotoStorage); a cloud bucket can implement
- * this later without touching the rest of the app.
+ * Where photos live: the database (DatabasePhotoStorage). A cloud bucket can implement this later without
+ * touching the rest of the app.
  */
 public interface PhotoStorage {
     record Photo(byte[] data, String contentType) {

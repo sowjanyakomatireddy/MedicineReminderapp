@@ -1,0 +1,50 @@
+# Free hosting on Render: the server (Docker) and the family app (static site).
+# The database is on Neon (free); paste its connection line as DATABASE_URL.
+# Step-by-step guide: docs/free-hosting.md
+services:
+  - type: web
+    name: medicine-reminder-api
+    runtime: docker
+    plan: free
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    envVars:
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DATABASE_URL          # from Neon: postgresql://...?sslmode=require
+        sync: false
+      - key: CORS_ALLOWED_ORIGINS  # the family app's address, e.g. https://medicine-reminder-app.onrender.com
+        sync: false
+      - key: APP_URL               # the same address
+        sync: false
+      # Let the free database sleep when idle, so it stays inside the free hours.
+      - key: DB_POOL_SIZE
+        value: "5"
+      - key: DB_MIN_IDLE
+        value: "0"
+      - key: DB_IDLE_TIMEOUT
+        value: "60000"
+      - key: DB_KEEPALIVE
+        value: "0"
+      - key: MISSED_CHECK_INTERVAL # the phone reports its own missed doses; this is the backup check
+        value: PT15M
+      - key: SERVER_FORWARD_HEADERS_STRATEGY # real client address behind Render's proxy (rate limits)
+        value: native
+  - type: web
+    name: medicine-reminder-app
+    runtime: static
+    rootDir: app
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL          # the server's address, e.g. https://medicine-reminder-api.onrender.com
+        sync: false
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    headers:
+      - path: /sw.js
+        name: Cache-Control
+        value: no-cache

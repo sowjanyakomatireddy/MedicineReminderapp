@@ -35,8 +35,9 @@ Then work through the real-phone checks in [docs/android-phone-test.md](docs/and
 overnight test.
 
 **Optional:** turn on push messages (changes arrive within a minute, "Play the reminder again", missed-dose alerts
-on family phones): [docs/firebase-setup.md](docs/firebase-setup.md). **To give him a permanent app** that works
-away from home, see [docs/release.md](docs/release.md).
+on family phones): [docs/firebase-setup.md](docs/firebase-setup.md). **To use it from anywhere for free** (no card;
+you open the family app on any phone, his phone syncs over his own internet), see
+[docs/free-hosting.md](docs/free-hosting.md), then give him a permanent app: [docs/release.md](docs/release.md).
 
 **Postgres.app on a Mac:** the first time the backend connects, Postgres.app may ask whether to allow Java. Choose
 Allow (or Postgres.app → Settings → App Permissions); otherwise startup fails with
@@ -49,6 +50,7 @@ Allow (or Postgres.app → Settings → App Permissions); otherwise startup fail
 | Family members using the app | [docs/family-guide.md](docs/family-guide.md) |
 | Testing on his real phone | [docs/android-phone-test.md](docs/android-phone-test.md) |
 | Push messages (Firebase) | [docs/firebase-setup.md](docs/firebase-setup.md) |
+| Free hosting (Neon + Render, no card) | [docs/free-hosting.md](docs/free-hosting.md) |
 | Release APK, signing key, hosting | [docs/release.md](docs/release.md) |
 | Native speakers checking the translations | [docs/translations/README.md](docs/translations/README.md) |
 | How it is built | [docs/architecture.md](docs/architecture.md) |
@@ -67,7 +69,7 @@ Allow (or Postgres.app → Settings → App Permissions); otherwise startup fail
 
 ## Tests
 
-- Backend: `cd backend && mvn test` (in-memory database; 57 tests)
+- Backend: `cd backend && mvn test` (in-memory database; 60 tests)
 - App: `cd app && npm test && npm run build` (53 tests, including accessibility checks on every main screen)
 - Alarm logic, no phone needed: `cd app/android && ./gradlew testDebugUnitTest` (9 tests)
 

@@ -15,7 +15,7 @@ import java.util.List;
  */
 @Validated
 @ConfigurationProperties(prefix = "app")
-public record AppProperties(Jwt jwt, Cors cors, RateLimit rateLimit, Storage storage, Push push, Jobs jobs) {
+public record AppProperties(Jwt jwt, Cors cors, RateLimit rateLimit, Push push, Jobs jobs) {
 
     /**
      * Firebase push. credentialsFile: path to the service-account JSON (FIREBASE_CREDENTIALS); empty = push off.
@@ -26,10 +26,6 @@ public record AppProperties(Jwt jwt, Cors cors, RateLimit rateLimit, Storage sto
 
     /** Background jobs (the missed-dose check). Off in tests, which call the job directly. */
     public record Jobs(boolean enabled, @Min(1) int missedGraceMinutes) {
-    }
-
-    /** Folder for uploaded photos (local disk in development). */
-    public record Storage(@NotBlank String dir) {
     }
 
     public record Jwt(

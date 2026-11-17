@@ -59,8 +59,8 @@ Small decisions made during the build, so they can be revisited.
   Times are `HH:mm` local time in the person's time zone.
 - **Shape and colour** are optional fixed lists (so they can be translated and drawn as an icon);
   **notes** are free text. Neither is in the prototype screen; both are in the brief.
-- **Photos** (medicine and person) go through a `PhotoStorage` interface; `LocalDiskPhotoStorage` writes to
-  `PHOTO_DIR`. The type is checked from the file's first bytes (JPEG/PNG/WebP only, 5 MB max), files get random
+- **Photos** (medicine and person) go through a `PhotoStorage` interface (since hosting: `DatabasePhotoStorage`,
+  see "Free hosting" below). The type is checked from the file's first bytes (JPEG/PNG/WebP only, 5 MB max), files get random
   names, and old files are deleted when replaced or when the medicine/person is deleted. The app shrinks phone
   photos to 1024 px before upload. Photos need a login, so the app fetches them with the token.
 - **Today's status** (`GET /api/families/me/today`) is worked out in each person's time zone:
@@ -188,3 +188,18 @@ Small decisions made during the build, so they can be revisited.
 - **Release APK:** signed with a key kept outside the project (`~/.medicine-reminder/`, made by
   `scripts/create-release-key.sh`); `scripts/build-release-apk.sh https://…` refuses plain http. Not shrunk with R8
   (Capacitor finds plugins by reflection). Hosting is not part of the project; `docs/release.md` lists options.
+
+## Free hosting (after Phase 7)
+
+The family lives apart from him and wanted it free with no card, opened from an iPhone.
+
+- **Neon (database) + Render (server, family app) + cron-job.org (keep awake)**, all without a card. Oracle's
+  free server needed a card; Render's own free database is deleted after 30 days.
+- **Photos moved into the database** (`photo` table, V6) because Render's free disk is wiped on restart.
+  `LocalDiskPhotoStorage` and `PHOTO_DIR` are gone; photos saved to `uploads/` before this are not carried over.
+- **`DATABASE_URL`** (`postgresql://user:pass@host/db`) is accepted as hosts give it; `DB_URL`/`DB_USER`/
+  `DB_PASSWORD` still work.
+- **Neon's free compute hours** do not cover a database awake all month, so on Render the pool closes idle
+  connections and the missed-dose backup check runs every 15 minutes (`MISSED_CHECK_INTERVAL`, default 1 minute
+  elsewhere). The phone still reports its own misses at once when online.
+- Steps: [free-hosting.md](free-hosting.md).

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import java.time.Instant;
 
 /**
- * Every minute: doses whose alarm ended without an answer become MISSED and the family is alerted.
+ * Every minute (app.jobs.interval): doses whose alarm ended without an answer become MISSED and the family is alerted.
  * Runs on one server; with several servers, add a lock (e.g. ShedLock) so it runs once.
  */
 @Component
@@ -22,7 +22,7 @@ public class MissedDoseJob {
         this.doses = doses;
     }
 
-    @Scheduled(fixedDelay = 60_000, initialDelay = 30_000)
+    @Scheduled(fixedDelayString = "${app.jobs.interval:PT1M}", initialDelayString = "PT30S")
     public void run() {
         int n = doses.markMissed(Instant.now());
         if (n > 0) {

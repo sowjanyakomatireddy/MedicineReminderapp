@@ -18,6 +18,8 @@ schedule until it syncs again and must be paired again) and install the new one.
 
 ## 2. A server the phone can reach over https
 
+**Free, no card:** [free-hosting.md](free-hosting.md) (Neon + Render). Other options:
+
 Release builds only talk **https** (Android's default; it protects his data on public Wi-Fi). The family app and
 his phone both need to reach the backend:
 
