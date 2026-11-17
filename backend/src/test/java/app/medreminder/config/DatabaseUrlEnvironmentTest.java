@@ -20,6 +20,13 @@ class DatabaseUrlEnvironmentTest {
     }
 
     @Test
+    void forgivesACopiedEnvLine() {
+        assertThat(DatabaseUrlEnvironment.clean(" DATABASE_URL=\"postgresql://u:x@h/db?sslmode=require\" "))
+                .isEqualTo("postgresql://u:x@h/db?sslmode=require");
+        assertThat(DatabaseUrlEnvironment.clean("'postgresql://u:x@h/db'")).isEqualTo("postgresql://u:x@h/db");
+    }
+
+    @Test
     void keepsThePort() {
         assertThat(DatabaseUrlEnvironment.parse("postgres://u:x@db.example:6543/app"))
                 .containsEntry("spring.datasource.url", "jdbc:postgresql://db.example:6543/app");

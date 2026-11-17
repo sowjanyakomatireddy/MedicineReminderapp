@@ -25,7 +25,16 @@ public class DatabaseUrlEnvironment implements EnvironmentPostProcessor, Ordered
         if (url == null || url.isBlank()) {
             return;
         }
-        env.getPropertySources().addFirst(new MapPropertySource("databaseUrl", parse(url.trim())));
+        env.getPropertySources().addFirst(new MapPropertySource("databaseUrl", parse(clean(url))));
+    }
+
+    /** Forgives what a copy from the host's page often carries: a "DATABASE_URL=" prefix and quotes. */
+    static String clean(String raw) {
+        String s = raw.trim().replaceFirst("^DATABASE_URL\\s*=\\s*", "").trim();
+        if (s.length() >= 2 && (s.startsWith("\"") || s.startsWith("'")) && s.charAt(s.length() - 1) == s.charAt(0)) {
+            s = s.substring(1, s.length() - 1).trim();
+        }
+        return s;
     }
 
     static Map<String, Object> parse(String url) {
