@@ -19,6 +19,7 @@ import android.os.Looper;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.speech.tts.TextToSpeech;
+import android.speech.tts.UtteranceProgressListener;
 import android.util.Log;
 
 import androidx.core.app.NotificationCompat;
@@ -160,6 +161,18 @@ public class AlarmService extends Service implements TextToSpeech.OnInitListener
                     .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
                     .build());
             tts.setSpeechRate(0.9f);
+            // A phone can report the language as available while its voice data is missing or broken:
+            // speaking then fails silently. Fall back to the alarm sound so the reminder is never silent.
+            tts.setOnUtteranceProgressListener(new UtteranceProgressListener() {
+                @Override public void onStart(String id) { }
+                @Override public void onDone(String id) { }
+                @Override public void onError(String id) {
+                    if (id != null && id.startsWith("say")) handler.post(() -> voiceFailed());
+                }
+                @Override public void onError(String id, int code) {
+                    onError(id);
+                }
+            });
             String lang = AlarmStore.config(this).optString("lang", "te-IN");
             int r = tts.setLanguage(Locale.forLanguageTag(lang));
             voiceOk = r >= TextToSpeech.LANG_AVAILABLE;
@@ -216,13 +229,30 @@ public class AlarmService extends Service implements TextToSpeech.OnInitListener
             }
             return;
         }
+        fallbackSound();
+        Log.i(AlarmScheduler.TAG, "No Text-to-Speech voice for this language; used fallback sound");
+    }
+
+    /** The voice could not speak: stop trying and use the voice note or the alarm sound instead. */
+    private void voiceFailed() {
+        if (!voiceOk || alarm == null) {
+            return; // already on the fallback
+        }
+        voiceOk = false; // for the rest of this ring and any "Listen again"
+        if (tts != null) {
+            tts.stop();
+        }
+        fallbackSound();
+        Log.w(AlarmScheduler.TAG, "Text-to-Speech failed to speak; used fallback sound");
+    }
+
+    private void fallbackSound() {
         String note = alarm.optString("voiceNoteUri", "");
         if (!note.isEmpty()) {
             playUri(Uri.parse(note), false);
         } else if (!calm()) {
             playUri(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM), true);
         }
-        Log.i(AlarmScheduler.TAG, "No Text-to-Speech voice for this language; used fallback sound");
     }
 
     private void playUri(Uri uri, boolean loop) {
