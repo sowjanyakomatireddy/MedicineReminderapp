@@ -14,21 +14,25 @@ import com.google.firebase.messaging.WebpushNotification;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 /**
- * Firebase Cloud Messaging through the Admin SDK. Credentials: the service-account JSON file named by
- * FIREBASE_CREDENTIALS (never committed). Message contents are never logged (they name medicines).
+ * Firebase Cloud Messaging through the Admin SDK. Credentials: FIREBASE_CREDENTIALS, the service-account JSON
+ * file's path or its contents (never committed). Message contents are never logged (they name medicines).
  */
 public class FcmPushSender implements PushSender {
     private static final Logger log = LoggerFactory.getLogger(FcmPushSender.class);
     private final FirebaseMessaging messaging;
 
-    public FcmPushSender(String credentialsFile) throws IOException {
-        try (InputStream in = new FileInputStream(credentialsFile)) {
+    public FcmPushSender(String credentials) throws IOException {
+        try (InputStream in = credentials.startsWith("{")
+                ? new ByteArrayInputStream(credentials.getBytes(StandardCharsets.UTF_8))
+                : new FileInputStream(credentials)) {
             FirebaseOptions options = FirebaseOptions.builder()
                     .setCredentials(GoogleCredentials.fromStream(in))
                     .build();

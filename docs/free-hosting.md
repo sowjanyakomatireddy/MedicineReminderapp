@@ -49,9 +49,10 @@ database, so the database can still sleep.
   **Share → Add to Home Screen**.
 - **His phone:** build the app with the server address and install it:
   `scripts/build-release-apk.sh https://medicine-reminder-api.onrender.com` (see [release.md](release.md)).
-- **Push** (optional): [firebase-setup.md](firebase-setup.md). On Render, add the Firebase key as a
-  **Secret File** named `firebase.json` and set `FIREBASE_CREDENTIALS=/etc/secrets/firebase.json`; add the
-  `VITE_FIREBASE_*` values to the app service.
+- **Push** (optional): [firebase-setup.md](firebase-setup.md). On Render, paste the whole Firebase
+  service-account JSON as the value of `FIREBASE_CREDENTIALS` on the server (a file path also works); add the
+  `VITE_FIREBASE_*` values to the app service. If the key cannot be used, the log says "Push messages are off"
+  and the server keeps running without push.
 
 ## What the free plan changes
 
