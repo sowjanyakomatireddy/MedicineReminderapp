@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { Capacitor } from '@capacitor/core';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { api, ApiError } from '../api/client';
+import { api, ApiError, fetchImage } from '../api/client';
 import { deviceStore, type PairedDevice } from '../device/deviceStore';
 import { findLocale } from '../i18n/locales';
 import { MedAlarm, isNativeApp, type StoredSync, type SyncData } from '../native/medAlarm';
@@ -105,7 +107,9 @@ function Today({ device }: { device: PairedDevice }) {
       {!data.sync && !offline && <p role="status" className="p-2">{t('common.loading')}</p>}
 
       <ol className="flex flex-col gap-3">
-        {doses.map((d) => <DoseCard key={d.key} dose={d} t={t} />)}
+        {doses.map((d) => (
+          <DoseCard key={d.key} dose={d} t={t} localPhoto={data.photos?.[d.medicineId]} deviceToken={device.token} />
+        ))}
       </ol>
 
       <div className="flex-1" />
@@ -126,7 +130,30 @@ function Today({ device }: { device: PairedDevice }) {
   );
 }
 
-function DoseCard({ dose: d, t }: { dose: ElderDose; t: (k: string) => string }) {
+/**
+ * The medicine's photo if it has one, else the drawing. In the Android app the photo is the copy the phone
+ * keeps for its alarms (works offline); in a browser it is fetched with the phone's device token.
+ */
+function MedicinePicture({ dose: d, localPhoto, deviceToken }: { dose: ElderDose; localPhoto?: string; deviceToken: string }) {
+  const [broken, setBroken] = useState(false);
+  const remote = useQuery({
+    queryKey: ['elderPhoto', d.medicineId, d.photoVersion],
+    queryFn: () => fetchImage(`/api/devices/me/medicines/${d.medicineId}/photo`, deviceToken),
+    enabled: !!d.photoVersion && !isNativeApp(),
+    staleTime: Infinity,
+    retry: false,
+  }).data;
+  const src = d.photoVersion ? (localPhoto ? Capacitor.convertFileSrc(localPhoto) : remote) : undefined;
+  if (!src || broken) return <PillIcon shape={d.shape} color={d.color} size={72} />;
+  return (
+    <img src={src} alt="" onError={() => setBroken(true)}
+      className="h-[88px] w-[88px] shrink-0 rounded-2xl bg-white object-cover" />
+  );
+}
+
+function DoseCard({ dose: d, t, localPhoto, deviceToken }: {
+  dose: ElderDose; t: (k: string) => string; localPhoto?: string; deviceToken: string;
+}) {
   const [h, m] = d.time.split(':').map(Number);
   const clock = `${((h + 11) % 12) + 1}:${String(m).padStart(2, '0')}`;
   const card = d.next
@@ -147,7 +174,7 @@ function DoseCard({ dose: d, t }: { dose: ElderDose; t: (k: string) => string })
         </span>
       </div>
       <div className="flex items-center gap-4">
-        <PillIcon shape={d.shape} color={d.color} size={72} />
+        <MedicinePicture dose={d} localPhoto={localPhoto} deviceToken={deviceToken} />
         <div className="flex flex-col gap-1.5">
           <span className="text-[26px] leading-snug font-bold">{d.title}</span>
           {d.food !== 'ANY' && (

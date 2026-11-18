@@ -132,7 +132,11 @@ public class MedAlarmPlugin extends Plugin {
     private JSObject syncData(JSONObject sync) {
         JSObject r = new JSObject();
         try {
-            if (sync != null) r.put("sync", new JSObject(sync.toString()));
+            if (sync != null) {
+                r.put("sync", new JSObject(sync.toString()));
+                r.put("photos", new JSObject(new JSONObject(
+                        SyncClient.localPhotos(getContext(), sync.optJSONArray("medicines"))).toString()));
+            }
             r.put("syncedAt", AlarmStore.syncAt(getContext()));
             r.put("statuses", new JSObject(AlarmStore.handledStatuses(getContext()).toString()));
             r.put("pending", AlarmStore.pendingLogs(getContext()).length());

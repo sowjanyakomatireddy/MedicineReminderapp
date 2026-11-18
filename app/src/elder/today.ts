@@ -6,6 +6,9 @@ export type ElderStatus = 'TAKEN' | 'MISSED' | null;
 export interface ElderDose {
   key: string;
   scheduleId: string;
+  medicineId: string;
+  /** Set when the medicine has a photo (its version changes when the photo changes). */
+  photoVersion?: string;
   time: string;
   title: string;
   food: Food;
@@ -64,6 +67,8 @@ export function todaysDoses(sync: SyncData, statuses: Record<string, string> = {
           return {
             key,
             scheduleId: s.id!,
+            medicineId: m.id,
+            photoVersion: m.hasPhoto ? (m.photoVersion ?? 'v') : undefined,
             time: s.time,
             title: m.voiceName || m.name,
             food: s.food,

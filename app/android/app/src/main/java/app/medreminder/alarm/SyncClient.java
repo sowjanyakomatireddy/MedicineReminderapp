@@ -143,6 +143,23 @@ public final class SyncClient {
         }
     }
 
+    /**
+     * The photos already on the phone for these medicines (medicineId → file URI), without downloading.
+     * Used by the Today screen; a photo not downloaded yet is simply left out (the drawing is shown).
+     */
+    static Map<String, String> localPhotos(Context ctx, JSONArray meds) {
+        Map<String, String> out = new HashMap<>();
+        File dir = new File(ctx.getFilesDir(), "photos");
+        for (int i = 0; meds != null && i < meds.length(); i++) {
+            JSONObject m = meds.optJSONObject(i);
+            if (m == null || !m.optBoolean("hasPhoto")) continue;
+            String id = m.optString("id");
+            File f = new File(dir, id + "_" + m.optString("photoVersion", "v") + ".img");
+            if (f.isFile()) out.put(id, Uri.fromFile(f).toString());
+        }
+        return out;
+    }
+
     /** Keeps one local copy per medicine photo version, for the alarm screen offline. */
     private static Map<String, String> downloadPhotos(Context ctx, JSONArray meds) {
         Map<String, String> out = new HashMap<>();

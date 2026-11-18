@@ -70,8 +70,8 @@ export async function api<T>(path: string, init: ApiInit = {}): Promise<T> {
 }
 
 /** Fetches an image that needs the login token (an <img src> cannot send it) and returns an object URL. */
-export async function fetchImage(path: string): Promise<string> {
-  const token = tokenStore.get();
+export async function fetchImage(path: string, deviceToken?: string): Promise<string> {
+  const token = deviceToken ?? tokenStore.get();
   const res = await fetch(`${BASE}${path}`, { headers: token ? { Authorization: `Bearer ${token}` } : {} });
   if (!res.ok) throw new ApiError(res.status, res.statusText);
   return URL.createObjectURL(await res.blob());

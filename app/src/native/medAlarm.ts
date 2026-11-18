@@ -110,6 +110,8 @@ export interface StoredSync {
   /** "scheduleId@yyyy-MM-dd" → TAKEN / MISSED, as the phone knows it (including not yet uploaded). */
   statuses?: Record<string, 'TAKEN' | 'MISSED'>;
   pending?: number;
+  /** medicineId → local file URI of its photo, for photos already on the phone. */
+  photos?: Record<string, string>;
 }
 
 export interface AlarmConfig {

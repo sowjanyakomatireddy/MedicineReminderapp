@@ -46,6 +46,17 @@ describe('elder Today', () => {
     expect(todaysDoses(sync(), {}, at0720).find((d) => d.next)?.time).toBe('07:00');
   });
 
+  it('carries the medicine and its photo version, so the list can show the photo', () => {
+    const s = sync();
+    s.medicines[1] = { ...s.medicines[1], hasPhoto: true, photoVersion: 'ab12cd34' };
+    const doses = todaysDoses(s, {}, monday10);
+    expect(doses.map((d) => [d.medicineId, d.photoVersion])).toEqual([
+      ['m1', undefined],
+      ['m2', 'ab12cd34'],
+      ['m1', undefined],
+    ]);
+  });
+
   it('period words', () => {
     expect([periodKey('07:00'), periodKey('13:30'), periodKey('18:00'), periodKey('22:00')])
       .toEqual(['morning', 'afternoon', 'evening', 'night']);
