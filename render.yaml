@@ -41,6 +41,18 @@ services:
     envVars:
       - key: VITE_API_URL          # the server's address, e.g. https://medicine-reminder-api.onrender.com
         sync: false
+      # Family alerts (web push). Firebase web settings are public by design (they ship in every web app);
+      # access is controlled by Firebase, not by hiding them. Project: medicine-reminder-f30cb.
+      - key: VITE_FIREBASE_API_KEY
+        value: AIzaSyDaaPDKe0zvUU0qaDkGzItZrzF-sbM0f4g
+      - key: VITE_FIREBASE_PROJECT_ID
+        value: medicine-reminder-f30cb
+      - key: VITE_FIREBASE_SENDER_ID
+        value: "377895499869"
+      - key: VITE_FIREBASE_APP_ID
+        value: 1:377895499869:web:6b4bfb48899073f82875b4
+      - key: VITE_FIREBASE_VAPID_KEY
+        value: BL4cpYk38TqTDDDLmszoQeGym0Es2Jnrxcp-ZW7y8bW1unHcmhUueA-d6IKvqJLjSssgrGxt-er-vTHjvn0VqeI
     routes:
       - type: rewrite
         source: /*
