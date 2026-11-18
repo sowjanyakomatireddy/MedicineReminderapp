@@ -40,7 +40,8 @@ class AuthControllerTest {
 
     @Test
     void healthIsPublic() throws Exception {
-        mvc.perform(get("/api/health")).andExpect(status().isOk()).andExpect(jsonPath("$.status").value("ok"));
+        mvc.perform(get("/api/health")).andExpect(status().isOk()).andExpect(jsonPath("$.status").value("ok"))
+                .andExpect(jsonPath("$.push").value("off"));
     }
 
     @Test
